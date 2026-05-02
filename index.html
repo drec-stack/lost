@@ -43,7 +43,6 @@
                         'slide-in-right': 'slideInRight 0.6s ease-out forwards',
                         'scale-in': 'scaleIn 0.4s ease-out forwards',
                         'shimmer': 'shimmer 2s infinite',
-                        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
                     }
                 }
             }
@@ -56,131 +55,132 @@
         .page { display: none; }
         .page.active { display: block; }
         
-        /* Premium Glass Morphism */
-        .glass-premium {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        /* Clean Background - No heavy particles */
+        body {
+            background: linear-gradient(135deg, #0a0f1a 0%, #0f172a 50%, #1a1f35 100%);
+            background-attachment: fixed;
         }
         
-        .glass-premium-dark {
-            background: rgba(0,0,0,0.3);
+        /* Premium Glass Morphism - Optimized */
+        .glass-premium {
+            background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
         
-        /* Animated Gradient */
+        .glass-premium-light {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        
+        /* Hero Gradient - Clean */
         .hero-gradient-premium {
-            background: radial-gradient(ellipse at 20% 30%, #0f172a 0%, #1e3a5f 50%, #1457e1 100%);
+            background: radial-gradient(ellipse at 30% 40%, #0f172a 0%, #0a0f1a 100%);
             position: relative;
             overflow: hidden;
         }
         
-        .hero-gradient-premium::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -50%;
-            width: 200%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        /* Floating orbs */
+        /* Simple floating orbs - CSS only, no heavy animations */
         .floating-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.4;
-            animation: floatOrb 20s ease-in-out infinite;
-        }
-        
-        @keyframes floatOrb {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 30px) scale(0.9); }
+            filter: blur(80px);
+            opacity: 0.15;
+            pointer-events: none;
         }
         
         /* Glow text */
         .glow-text {
-            text-shadow: 0 0 30px rgba(20, 87, 225, 0.5);
-            animation: glowPulse 3s ease-in-out infinite;
-        }
-        
-        @keyframes glowPulse {
-            0%, 100% { text-shadow: 0 0 20px rgba(20, 87, 225, 0.3); }
-            50% { text-shadow: 0 0 50px rgba(20, 87, 225, 0.8); }
-        }
-        
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 5px rgba(20, 87, 225, 0.3), 0 0 10px rgba(20, 87, 225, 0.2); }
-            50% { box-shadow: 0 0 20px rgba(20, 87, 225, 0.6), 0 0 30px rgba(20, 87, 225, 0.3); }
+            text-shadow: 0 0 20px rgba(20, 87, 225, 0.3);
         }
         
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-10px); }
         }
         
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
         @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-60px); }
+            from { opacity: 0; transform: translateX(-40px); }
             to { opacity: 1; transform: translateX(0); }
         }
         
         @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(60px); }
+            from { opacity: 0; transform: translateX(40px); }
             to { opacity: 1; transform: translateX(0); }
         }
         
         @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.9); }
+            from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
         
-        /* Premium card hover */
+        /* Premium Card Design - Redesigned */
         .card-premium {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(20, 87, 225, 0.1);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(20, 30, 55, 0.9) 100%);
+            border: 1px solid rgba(20, 87, 225, 0.2);
             transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             position: relative;
             overflow: hidden;
         }
         
-        .card-premium::before {
+        .card-premium::after {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(20, 87, 225, 0.1), transparent);
-            transition: left 0.6s;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #1457e1, #59b1ff, #1457e1, transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
         }
         
-        .card-premium:hover::before {
-            left: 100%;
+        .card-premium:hover::after {
+            transform: translateX(100%);
         }
         
         .card-premium:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(20, 87, 225, 0.3);
-            box-shadow: 0 30px 50px -20px rgba(20, 87, 225, 0.3);
+            transform: translateY(-6px);
+            border-color: rgba(20, 87, 225, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(20, 87, 225, 0.2);
         }
         
-        /* Interactive nav link */
+        /* Catalog Card - Special Design */
+        .catalog-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(20, 30, 55, 0.95) 100%);
+            border: 1px solid rgba(20, 87, 225, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .catalog-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(20, 87, 225, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: inherit;
+        }
+        
+        .catalog-card:hover::before {
+            opacity: 1;
+        }
+        
+        .catalog-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(20, 87, 225, 0.4);
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Interactive Nav Link */
         .nav-link-premium {
             position: relative;
             transition: all 0.3s;
@@ -200,17 +200,14 @@
         
         .nav-link-premium:hover::before,
         .nav-link-premium.active::before {
-            width: 80%;
+            width: 60%;
         }
         
         .nav-link-premium.active {
-            background: linear-gradient(135deg, #1457e1, #59b1ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #59b1ff;
         }
         
-        /* Animated border button */
+        /* Premium Button */
         .btn-premium {
             position: relative;
             background: linear-gradient(135deg, #1457e1, #59b1ff);
@@ -222,56 +219,64 @@
         .btn-premium::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
         }
         
         .btn-premium:hover::before {
-            width: 300px;
-            height: 300px;
+            left: 100%;
         }
         
         .btn-premium:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(20, 87, 225, 0.4);
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(20, 87, 225, 0.35);
         }
         
-        /* Stat counter style */
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #1457e1, #59b1ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        /* Interactive world map dots */
-        .interactive-dot {
-            cursor: pointer;
+        /* Outline Button */
+        .btn-outline-premium {
+            background: transparent;
+            border: 1px solid rgba(20, 87, 225, 0.5);
             transition: all 0.3s;
         }
         
-        .interactive-dot:hover {
-            transform: scale(1.5);
-            filter: drop-shadow(0 0 10px rgba(20, 87, 225, 0.8));
+        .btn-outline-premium:hover {
+            background: rgba(20, 87, 225, 0.1);
+            border-color: #1457e1;
+            transform: scale(1.02);
         }
         
-        /* Particle canvas */
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        /* Stat Number Style */
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #59b1ff, #1457e1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        /* Animated Border Button */
+        .btn-animated-border {
+            position: relative;
+            background: transparent;
+            border: none;
+        }
+        
+        .btn-animated-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            background: linear-gradient(135deg, #1457e1, #59b1ff);
+            border-radius: 12px;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
             pointer-events: none;
-            z-index: 0;
         }
         
         /* Scroll reveal */
@@ -292,76 +297,95 @@
         
         @keyframes pulseDot {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
+            50% { opacity: 0.6; transform: scale(1.2); }
         }
         
-        /* Premium scrollbar */
-        ::-webkit-scrollbar { width: 10px; }
+        /* Premium Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #1457e1, #59b1ff); border-radius: 10px; }
         
-        /* 3D Tilt effect */
-        .tilt-card {
-            transition: transform 0.2s;
+        /* Map dots interactive */
+        .interactive-dot {
+            cursor: pointer;
+            transition: all 0.2s;
         }
         
-        /* Mouse follower */
-        .mouse-follower {
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(20,87,225,0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s;
+        .interactive-dot:hover {
+            transform: scale(1.3);
+            filter: drop-shadow(0 0 8px rgba(20, 87, 225, 0.6));
+        }
+        
+        /* Form inputs */
+        .input-premium {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        
+        .input-premium:focus {
+            border-color: #1457e1;
+            box-shadow: 0 0 0 3px rgba(20, 87, 225, 0.1);
+            outline: none;
+        }
+        
+        /* Status badges */
+        .status-badge-lost {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .status-badge-found {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .status-badge-reunited {
+            background: rgba(20, 87, 225, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(20, 87, 225, 0.3);
         }
     </style>
 </head>
-<body class="bg-gray-950 text-white min-h-screen">
-
-    <!-- Mouse Follower -->
-    <div class="mouse-follower hidden lg:block"></div>
-    
-    <!-- Particle Canvas -->
-    <canvas id="particle-canvas"></canvas>
+<body>
 
     <!-- Toast Container -->
     <div id="toast-container" class="fixed top-6 right-6 z-[200] flex flex-col gap-3"></div>
 
-    <!-- Premium Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: rgba(15,23,42,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(20,87,225,0.2);">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: rgba(10,15,26,0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(20,87,225,0.2);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-2 group">
-                    <div class="w-9 h-9 bg-gradient-to-br from-brand-600 to-brand-400 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform">
+                    <div class="w-9 h-9 bg-gradient-to-br from-brand-600 to-brand-400 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-110 transition-transform">
                         <i data-lucide="radar" class="w-5 h-5 text-white"></i>
                     </div>
                     <span class="font-heading font-bold text-xl bg-gradient-to-r from-white to-brand-300 bg-clip-text text-transparent">Reunite</span>
                 </a>
                 
-                <div class="hidden md:flex items-center gap-2">
-                    <a href="#" onclick="navigateTo('home'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-400 rounded-lg transition" data-nav="home" data-i18n="nav_home">Home</a>
-                    <a href="#" onclick="navigateTo('catalog'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-400 rounded-lg transition" data-nav="catalog" data-i18n="nav_catalog">Catalog</a>
-                    <a href="#" onclick="navigateTo('report-lost'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-400 rounded-lg transition" data-nav="report-lost" data-i18n="nav_report_lost">Report Lost</a>
-                    <a href="#" onclick="navigateTo('report-found'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-400 rounded-lg transition" data-nav="report-found" data-i18n="nav_report_found">Report Found</a>
-                    <a href="#" onclick="navigateTo('pricing'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-400 rounded-lg transition" data-nav="pricing" data-i18n="nav_pricing">Pricing</a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="#" onclick="navigateTo('home'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-400 hover:text-brand-400 rounded-lg transition" data-nav="home" data-i18n="nav_home">Home</a>
+                    <a href="#" onclick="navigateTo('catalog'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-400 hover:text-brand-400 rounded-lg transition" data-nav="catalog" data-i18n="nav_catalog">Catalog</a>
+                    <a href="#" onclick="navigateTo('report-lost'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-400 hover:text-brand-400 rounded-lg transition" data-nav="report-lost" data-i18n="nav_report_lost">Report Lost</a>
+                    <a href="#" onclick="navigateTo('report-found'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-400 hover:text-brand-400 rounded-lg transition" data-nav="report-found" data-i18n="nav_report_found">Report Found</a>
+                    <a href="#" onclick="navigateTo('pricing'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-400 hover:text-brand-400 rounded-lg transition" data-nav="pricing" data-i18n="nav_pricing">Pricing</a>
                 </div>
                 
                 <div class="flex items-center gap-3">
-                    <button onclick="openSearch()" class="p-2 hover:bg-white/10 rounded-lg transition">
+                    <button onclick="openSearch()" class="p-2 hover:bg-white/5 rounded-lg transition">
                         <i data-lucide="search" class="w-5 h-5 text-gray-400"></i>
                     </button>
-                    <button onclick="toggleLanguage()" id="lang-toggle" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold hover:bg-white/10 transition border border-white/20">
+                    <button onclick="toggleLanguage()" id="lang-toggle" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold hover:bg-white/5 transition border border-white/10">
                         <i data-lucide="globe" class="w-4 h-4 text-gray-400"></i>
-                        <span id="lang-label">RU</span>
+                        <span id="lang-label" class="text-gray-300">RU</span>
                     </button>
                     <button onclick="navigateTo('report-lost'); return false;" class="hidden sm:inline-flex items-center gap-2 btn-premium text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
                         <i data-lucide="plus" class="w-4 h-4"></i>
                         <span data-i18n="nav_report_item">Report Item</span>
                     </button>
-                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 hover:bg-white/10 rounded-lg transition">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 hover:bg-white/5 rounded-lg transition">
                         <i data-lucide="menu" class="w-5 h-5 text-gray-400"></i>
                     </button>
                 </div>
@@ -371,11 +395,11 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 backdrop-blur-xl border-t border-white/10">
             <div class="px-4 py-3 space-y-1">
-                <a href="#" onclick="navigateTo('home');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/10 rounded-lg" data-i18n="nav_home">Home</a>
-                <a href="#" onclick="navigateTo('catalog');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/10 rounded-lg" data-i18n="nav_catalog">Catalog</a>
-                <a href="#" onclick="navigateTo('report-lost');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/10 rounded-lg" data-i18n="nav_report_lost">Report Lost</a>
-                <a href="#" onclick="navigateTo('report-found');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/10 rounded-lg" data-i18n="nav_report_found">Report Found</a>
-                <a href="#" onclick="navigateTo('pricing');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/10 rounded-lg" data-i18n="nav_pricing">Pricing</a>
+                <a href="#" onclick="navigateTo('home');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/5 rounded-lg" data-i18n="nav_home">Home</a>
+                <a href="#" onclick="navigateTo('catalog');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/5 rounded-lg" data-i18n="nav_catalog">Catalog</a>
+                <a href="#" onclick="navigateTo('report-lost');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/5 rounded-lg" data-i18n="nav_report_lost">Report Lost</a>
+                <a href="#" onclick="navigateTo('report-found');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/5 rounded-lg" data-i18n="nav_report_found">Report Found</a>
+                <a href="#" onclick="navigateTo('pricing');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/5 rounded-lg" data-i18n="nav_pricing">Pricing</a>
             </div>
         </div>
     </nav>
@@ -403,23 +427,23 @@
     <div id="page-home" class="page active">
         <!-- Hero Section -->
         <section class="hero-gradient-premium min-h-screen flex items-center relative overflow-hidden">
-            <!-- Floating Orbs -->
-            <div class="floating-orb w-96 h-96 bg-brand-600" style="top: 10%; left: -5%; animation-delay: 0s;"></div>
-            <div class="floating-orb w-80 h-80 bg-blue-500" style="bottom: 10%; right: -5%; animation-delay: 2s;"></div>
-            <div class="floating-orb w-64 h-64 bg-cyan-500" style="top: 50%; left: 30%; animation-delay: 4s;"></div>
+            <!-- Simple Orbs - CSS only -->
+            <div class="floating-orb w-96 h-96 bg-brand-600" style="top: 10%; left: -10%;"></div>
+            <div class="floating-orb w-80 h-80 bg-blue-500" style="bottom: 10%; right: -10%;"></div>
+            <div class="floating-orb w-64 h-64 bg-cyan-500" style="top: 50%; left: 40%;"></div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative z-10">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div class="scroll-reveal">
-                        <div class="inline-flex items-center gap-2 glass-premium px-4 py-2 rounded-full text-sm mb-8 animate-pulse">
+                        <div class="inline-flex items-center gap-2 glass-premium px-4 py-2 rounded-full text-sm mb-8">
                             <span class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></span>
-                            <span data-i18n="hero_badge" class="text-white/90">12,847 items reunited this month</span>
+                            <span data-i18n="hero_badge" class="text-white/80">12,847 items reunited this month</span>
                         </div>
                         <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6">
                             <span data-i18n="hero_title_1" class="text-white">Lost it?</span><br>
                             <span class="bg-gradient-to-r from-brand-300 via-brand-400 to-cyan-300 bg-clip-text text-transparent glow-text" data-i18n="hero_title_2">We'll find it.</span>
                         </h1>
-                        <p class="text-xl text-gray-300 mb-10 max-w-lg leading-relaxed" data-i18n="hero_subtitle">
+                        <p class="text-xl text-gray-400 mb-10 max-w-lg leading-relaxed" data-i18n="hero_subtitle">
                             The world's largest lost & found network. Report, search, and reunite with your belongings — powered by a global community.
                         </p>
                         <div class="flex flex-wrap gap-4">
@@ -427,24 +451,24 @@
                                 <i data-lucide="alert-circle" class="w-5 h-5 group-hover:rotate-12 transition"></i>
                                 <span data-i18n="hero_btn_lost">I Lost Something</span>
                             </button>
-                            <button onclick="navigateTo('report-found')" class="inline-flex items-center gap-2 glass-premium text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/10 transition min-w-[200px] justify-center group">
-                                <i data-lucide="check-circle" class="w-5 h-5 group-hover:scale-110 transition"></i>
+                            <button onclick="navigateTo('report-found')" class="inline-flex items-center gap-2 btn-outline-premium text-white px-8 py-4 rounded-xl text-lg font-bold transition min-w-[200px] justify-center group">
+                                <i data-lucide="check-circle" class="w-5 h-5"></i>
                                 <span data-i18n="hero_btn_found">I Found Something</span>
                             </button>
                         </div>
                         
                         <div class="flex items-center gap-8 mt-12 pt-8 border-t border-white/10">
                             <div class="group cursor-pointer">
-                                <div class="stat-number group-hover:scale-110 transition-transform inline-block">2.4M+</div>
-                                <div class="text-sm text-gray-400" data-i18n="hero_stat_items">Items Listed</div>
+                                <div class="stat-number group-hover:scale-105 transition-transform inline-block">2.4M+</div>
+                                <div class="text-sm text-gray-500" data-i18n="hero_stat_items">Items Listed</div>
                             </div>
                             <div class="group cursor-pointer">
-                                <div class="stat-number group-hover:scale-110 transition-transform inline-block">180+</div>
-                                <div class="text-sm text-gray-400" data-i18n="hero_stat_countries">Countries</div>
+                                <div class="stat-number group-hover:scale-105 transition-transform inline-block">180+</div>
+                                <div class="text-sm text-gray-500" data-i18n="hero_stat_countries">Countries</div>
                             </div>
                             <div class="group cursor-pointer">
-                                <div class="stat-number group-hover:scale-110 transition-transform inline-block">67%</div>
-                                <div class="text-sm text-gray-400" data-i18n="hero_stat_rate">Reunion Rate</div>
+                                <div class="stat-number group-hover:scale-105 transition-transform inline-block">67%</div>
+                                <div class="text-sm text-gray-500" data-i18n="hero_stat_rate">Reunion Rate</div>
                             </div>
                         </div>
                     </div>
@@ -452,48 +476,48 @@
                     <div class="hidden lg:block relative scroll-reveal" style="transition-delay: 0.2s;">
                         <div class="relative float-animation">
                             <div class="glass-premium rounded-3xl p-8">
-                                <img src="http://static.photos/abstract/640x360/77" alt="World Network" class="rounded-2xl w-full object-cover opacity-60">
+                                <img src="http://static.photos/abstract/640x360/77" alt="World Network" class="rounded-2xl w-full object-cover opacity-50">
                                 <!-- Interactive Dots -->
                                 <div class="absolute top-12 left-12 interactive-dot">
-                                    <div class="w-4 h-4 bg-green-400 rounded-full map-dot shadow-lg shadow-green-400/50"></div>
-                                    <div class="absolute -top-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity">23 items found</div>
+                                    <div class="w-4 h-4 bg-green-400 rounded-full pulse-dot"></div>
+                                    <div class="absolute -top-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity pointer-events-none">23 items</div>
                                 </div>
                                 <div class="absolute top-20 right-16 interactive-dot">
-                                    <div class="w-3 h-3 bg-amber-400 rounded-full map-dot shadow-lg shadow-amber-400/50" style="animation-delay:0.5s"></div>
-                                    <div class="absolute -top-8 -right-4 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity">45 items found</div>
+                                    <div class="w-3 h-3 bg-amber-400 rounded-full pulse-dot" style="animation-delay:0.5s"></div>
+                                    <div class="absolute -top-8 -right-4 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity pointer-events-none">45 items</div>
                                 </div>
                                 <div class="absolute bottom-16 left-20 interactive-dot">
-                                    <div class="w-4 h-4 bg-blue-400 rounded-full map-dot shadow-lg shadow-blue-400/50" style="animation-delay:1s"></div>
-                                    <div class="absolute -bottom-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity">12 items found</div>
+                                    <div class="w-4 h-4 bg-blue-400 rounded-full pulse-dot" style="animation-delay:1s"></div>
+                                    <div class="absolute -bottom-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity pointer-events-none">12 items</div>
                                 </div>
                                 <div class="absolute bottom-24 right-24 interactive-dot">
-                                    <div class="w-3 h-3 bg-pink-400 rounded-full map-dot shadow-lg shadow-pink-400/50" style="animation-delay:1.5s"></div>
-                                    <div class="absolute -top-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity">67 items found</div>
+                                    <div class="w-3 h-3 bg-pink-400 rounded-full pulse-dot" style="animation-delay:1.5s"></div>
+                                    <div class="absolute -top-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity pointer-events-none">67 items</div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Floating cards -->
-                        <div class="absolute -left-8 bottom-4 glass-premium rounded-2xl p-4 slide-up cursor-pointer hover:scale-105 transition-transform" style="animation-delay:0.3s">
+                        <div class="absolute -left-8 bottom-4 glass-premium rounded-2xl p-3 slide-up cursor-pointer hover:scale-105 transition-transform" style="animation-delay:0.3s">
                             <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center animate-pulse">
-                                    <i data-lucide="check" class="w-5 h-5 text-green-400"></i>
+                                <div class="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
                                 </div>
                                 <div>
-                                    <div class="text-white text-sm font-semibold" data-i18n="hero_card_wallet">Wallet Found!</div>
-                                    <div class="text-gray-400 text-xs" data-i18n="hero_card_wallet_sub">Paris, France • 2min ago</div>
+                                    <div class="text-white text-xs font-semibold" data-i18n="hero_card_wallet">Wallet Found!</div>
+                                    <div class="text-gray-500 text-xs" data-i18n="hero_card_wallet_sub">Paris, FR • 2min ago</div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="absolute -right-4 top-16 glass-premium rounded-2xl p-4 slide-up cursor-pointer hover:scale-105 transition-transform" style="animation-delay:0.6s">
+                        <div class="absolute -right-4 top-16 glass-premium rounded-2xl p-3 slide-up cursor-pointer hover:scale-105 transition-transform" style="animation-delay:0.6s">
                             <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-amber-500/20 rounded-full flex items-center justify-center animate-pulse">
-                                    <i data-lucide="bell" class="w-5 h-5 text-amber-400"></i>
+                                <div class="w-8 h-8 bg-amber-500/20 rounded-full flex items-center justify-center">
+                                    <i data-lucide="bell" class="w-4 h-4 text-amber-400"></i>
                                 </div>
                                 <div>
-                                    <div class="text-white text-sm font-semibold" data-i18n="hero_card_match">New Match</div>
-                                    <div class="text-gray-400 text-xs" data-i18n="hero_card_match_sub">Your report has a match!</div>
+                                    <div class="text-white text-xs font-semibold" data-i18n="hero_card_match">New Match</div>
+                                    <div class="text-gray-500 text-xs" data-i18n="hero_card_match_sub">Your report matched!</div>
                                 </div>
                             </div>
                         </div>
@@ -502,149 +526,180 @@
             </div>
         </section>
 
-        <!-- How It Works - Premium -->
-        <section class="py-24 bg-gray-900">
+        <!-- How It Works - Redesigned Cards -->
+        <section class="py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 scroll-reveal">
-                    <span class="inline-block bg-brand-500/20 text-brand-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 backdrop-blur-sm border border-brand-500/30" data-i18n="hiw_badge">HOW IT WORKS</span>
+                    <span class="inline-block bg-brand-500/10 text-brand-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-brand-500/20" data-i18n="hiw_badge">HOW IT WORKS</span>
                     <h2 class="font-heading text-4xl sm:text-5xl font-bold text-white mb-4" data-i18n="hiw_title">Three simple steps</h2>
                     <p class="text-xl text-gray-400 max-w-2xl mx-auto" data-i18n="hiw_subtitle">Whether you've lost or found something, our process makes reuniting items with their owners seamless.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card-premium rounded-2xl p-8 text-center scroll-reveal tilt-card" data-tilt>
-                        <div class="w-20 h-20 bg-gradient-to-br from-red-500/20 to-red-600/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                            <i data-lucide="file-plus" class="w-9 h-9 text-red-400"></i>
+                    <!-- Step 1 Card -->
+                    <div class="card-premium rounded-2xl p-8 text-center scroll-reveal">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-500/10 to-red-600/5 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                            <i data-lucide="file-plus" class="w-8 h-8 text-red-400"></i>
                         </div>
-                        <div class="text-sm font-bold text-brand-400 mb-2" data-i18n="hiw_step1_label">STEP 1</div>
+                        <div class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2" data-i18n="hiw_step1_label">Step 01</div>
                         <h3 class="font-heading text-xl font-bold text-white mb-3" data-i18n="hiw_step1_title">Report Your Item</h3>
-                        <p class="text-gray-400 leading-relaxed" data-i18n="hiw_step1_desc">Describe what you lost or found, add photos, and specify the location and date. Takes under 2 minutes.</p>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="hiw_step1_desc">Describe what you lost or found, add photos, and specify the location and date.</p>
                     </div>
-                    <div class="card-premium rounded-2xl p-8 text-center scroll-reveal tilt-card" data-tilt style="transition-delay: 0.1s">
-                        <div class="w-20 h-20 bg-gradient-to-br from-brand-500/20 to-brand-600/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <i data-lucide="scan-search" class="w-9 h-9 text-brand-400"></i>
+                    <!-- Step 2 Card -->
+                    <div class="card-premium rounded-2xl p-8 text-center scroll-reveal" style="transition-delay: 0.1s">
+                        <div class="w-16 h-16 bg-gradient-to-br from-brand-500/10 to-brand-600/5 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                            <i data-lucide="scan-search" class="w-8 h-8 text-brand-400"></i>
                         </div>
-                        <div class="text-sm font-bold text-brand-400 mb-2" data-i18n="hiw_step2_label">STEP 2</div>
+                        <div class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2" data-i18n="hiw_step2_label">Step 02</div>
                         <h3 class="font-heading text-xl font-bold text-white mb-3" data-i18n="hiw_step2_title">AI Matches Items</h3>
-                        <p class="text-gray-400 leading-relaxed" data-i18n="hiw_step2_desc">Our intelligent system matches lost items with found reports, comparing descriptions, photos, and locations.</p>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="hiw_step2_desc">Our intelligent system matches lost items with found reports automatically.</p>
                     </div>
-                    <div class="card-premium rounded-2xl p-8 text-center scroll-reveal tilt-card" data-tilt style="transition-delay: 0.2s">
-                        <div class="w-20 h-20 bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <i data-lucide="handshake" class="w-9 h-9 text-green-400"></i>
+                    <!-- Step 3 Card -->
+                    <div class="card-premium rounded-2xl p-8 text-center scroll-reveal" style="transition-delay: 0.2s">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-500/10 to-green-600/5 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                            <i data-lucide="handshake" class="w-8 h-8 text-green-400"></i>
                         </div>
-                        <div class="text-sm font-bold text-brand-400 mb-2" data-i18n="hiw_step3_label">STEP 3</div>
+                        <div class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2" data-i18n="hiw_step3_label">Step 03</div>
                         <h3 class="font-heading text-xl font-bold text-white mb-3" data-i18n="hiw_step3_title">Get Reunited</h3>
-                        <p class="text-gray-400 leading-relaxed" data-i18n="hiw_step3_desc">Connect with the finder or owner through our secure messaging system and arrange the handoff.</p>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="hiw_step3_desc">Connect with the finder or owner through our secure messaging system.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Recent Activity - Premium -->
-        <section class="py-20 bg-gray-950">
+        <!-- Recent Activity - Redesigned Cards -->
+        <section class="py-20 bg-black/30">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 scroll-reveal">
-                    <span class="inline-block bg-green-500/20 text-green-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 backdrop-blur-sm border border-green-500/30" data-i18n="recent_badge">RECENTLY REUNITED</span>
+                    <span class="inline-block bg-green-500/10 text-green-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-green-500/20" data-i18n="recent_badge">RECENTLY REUNITED</span>
                     <h2 class="font-heading text-4xl sm:text-5xl font-bold text-white mb-4" data-i18n="recent_title">Happy reunions, happening daily</h2>
-                    <p class="text-xl text-gray-400 max-w-2xl mx-auto" data-i18n="recent_subtitle">Real stories of items that found their way back to their owners through Reunite.</p>
+                    <p class="text-xl text-gray-400 max-w-2xl mx-auto" data-i18n="recent_subtitle">Real stories of items that found their way back to their owners.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Card 1 -->
-                    <div class="card-premium rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" onclick="openItemModal(1)">
-                        <img src="http://static.photos/nature/320x240/42" alt="Item" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="p-5">
-                            <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
-                            <h4 class="font-heading font-bold text-white mb-1">Golden Retriever</h4>
-                            <p class="text-sm text-gray-400">Moscow, RU • 2 days ago</p>
+                    <div class="catalog-card rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" onclick="openItemModal(1)">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="http://static.photos/nature/320x240/42" alt="Item" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                            <span class="absolute top-3 right-3 px-2 py-1 text-xs font-semibold rounded-full status-badge-reunited backdrop-blur-sm">Reunited</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-heading font-bold text-white text-lg mb-1">Golden Retriever</h4>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="map-pin" class="w-3 h-3"></i>
+                                <span>Moscow, RU</span>
+                                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                                <span>2 days ago</span>
+                            </div>
                         </div>
                     </div>
-                    <!-- Card 2 -->
-                    <div class="card-premium rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" style="transition-delay: 0.1s" onclick="openItemModal(2)">
-                        <img src="http://static.photos/technology/320x240/15" alt="Item" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="p-5">
-                            <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
-                            <h4 class="font-heading font-bold text-white mb-1">MacBook Pro 16"</h4>
-                            <p class="text-sm text-gray-400">Berlin, DE • 5 hours ago</p>
+                    <div class="catalog-card rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" style="transition-delay: 0.1s" onclick="openItemModal(2)">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="http://static.photos/technology/320x240/15" alt="Item" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                            <span class="absolute top-3 right-3 px-2 py-1 text-xs font-semibold rounded-full status-badge-reunited backdrop-blur-sm">Reunited</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-heading font-bold text-white text-lg mb-1">MacBook Pro 16"</h4>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="map-pin" class="w-3 h-3"></i>
+                                <span>Berlin, DE</span>
+                                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                                <span>5 hours ago</span>
+                            </div>
                         </div>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="card-premium rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" style="transition-delay: 0.2s" onclick="openItemModal(3)">
-                        <img src="http://static.photos/people/320x240/88" alt="Item" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="p-5">
-                            <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
-                            <h4 class="font-heading font-bold text-white mb-1">Wedding Ring</h4>
-                            <p class="text-sm text-gray-400">Tokyo, JP • 1 week ago</p>
+                    <div class="catalog-card rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" style="transition-delay: 0.2s" onclick="openItemModal(3)">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="http://static.photos/people/320x240/88" alt="Item" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                            <span class="absolute top-3 right-3 px-2 py-1 text-xs font-semibold rounded-full status-badge-reunited backdrop-blur-sm">Reunited</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-heading font-bold text-white text-lg mb-1">Wedding Ring</h4>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="map-pin" class="w-3 h-3"></i>
+                                <span>Tokyo, JP</span>
+                                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                                <span>1 week ago</span>
+                            </div>
                         </div>
                     </div>
-                    <!-- Card 4 -->
-                    <div class="card-premium rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" style="transition-delay: 0.3s" onclick="openItemModal(4)">
-                        <img src="http://static.photos/office/320x240/12" alt="Item" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="p-5">
-                            <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
-                            <h4 class="font-heading font-bold text-white mb-1">Passport</h4>
-                            <p class="text-sm text-gray-400">London, UK • 3 days ago</p>
+                    <div class="catalog-card rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" style="transition-delay: 0.3s" onclick="openItemModal(4)">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="http://static.photos/office/320x240/12" alt="Item" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                            <span class="absolute top-3 right-3 px-2 py-1 text-xs font-semibold rounded-full status-badge-reunited backdrop-blur-sm">Reunited</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-heading font-bold text-white text-lg mb-1">Passport</h4>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="map-pin" class="w-3 h-3"></i>
+                                <span>London, UK</span>
+                                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                                <span>3 days ago</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials - Premium -->
-        <section class="py-20 bg-gray-900">
+        <!-- Testimonials - Redesigned -->
+        <section class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 scroll-reveal">
-                    <span class="inline-block bg-purple-500/20 text-purple-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 backdrop-blur-sm border border-purple-500/30" data-i18n="testimonials_badge">TESTIMONIALS</span>
+                    <span class="inline-block bg-purple-500/10 text-purple-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-purple-500/20" data-i18n="testimonials_badge">TESTIMONIALS</span>
                     <h2 class="font-heading text-4xl sm:text-5xl font-bold text-white mb-4" data-i18n="testimonials_title">Loved by thousands</h2>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card-premium rounded-2xl p-8 scroll-reveal">
-                        <div class="flex gap-1 mb-4 text-amber-400">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="card-premium rounded-2xl p-6 scroll-reveal">
+                        <div class="flex gap-1 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
                         </div>
-                        <p class="text-gray-300 mb-6" data-i18n="testimonial_1_text">I couldn't believe it when someone found my lost drone! Reunite's community is amazing.</p>
+                        <p class="text-gray-300 text-sm mb-5" data-i18n="testimonial_1_text">I couldn't believe it when someone found my lost drone! Reunite's community is amazing.</p>
                         <div class="flex items-center gap-3">
-                            <img src="http://static.photos/people/48x48/1" class="w-10 h-10 rounded-full border-2 border-brand-500" alt="User">
+                            <img src="http://static.photos/people/48x48/1" class="w-10 h-10 rounded-full border border-brand-500/30" alt="User">
                             <div>
-                                <div class="font-semibold text-white" data-i18n="testimonial_1_name">Alex K.</div>
-                                <div class="text-sm text-gray-400" data-i18n="testimonial_1_loc">Berlin, Germany</div>
+                                <div class="font-semibold text-white text-sm" data-i18n="testimonial_1_name">Alex K.</div>
+                                <div class="text-xs text-gray-500" data-i18n="testimonial_1_loc">Berlin, Germany</div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-premium rounded-2xl p-8 scroll-reveal" style="transition-delay: 0.1s">
-                        <div class="flex gap-1 mb-4 text-amber-400">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <div class="card-premium rounded-2xl p-6 scroll-reveal" style="transition-delay: 0.1s">
+                        <div class="flex gap-1 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
                         </div>
-                        <p class="text-gray-300 mb-6" data-i18n="testimonial_2_text">We found a lost cat and within hours the owner contacted us. This site is magical!</p>
+                        <p class="text-gray-300 text-sm mb-5" data-i18n="testimonial_2_text">We found a lost cat and within hours the owner contacted us. This site is magical!</p>
                         <div class="flex items-center gap-3">
-                            <img src="http://static.photos/people/48x48/2" class="w-10 h-10 rounded-full border-2 border-brand-500" alt="User">
+                            <img src="http://static.photos/people/48x48/2" class="w-10 h-10 rounded-full border border-brand-500/30" alt="User">
                             <div>
-                                <div class="font-semibold text-white" data-i18n="testimonial_2_name">Maria S.</div>
-                                <div class="text-sm text-gray-400" data-i18n="testimonial_2_loc">Paris, France</div>
+                                <div class="font-semibold text-white text-sm" data-i18n="testimonial_2_name">Maria S.</div>
+                                <div class="text-xs text-gray-500" data-i18n="testimonial_2_loc">Paris, France</div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-premium rounded-2xl p-8 scroll-reveal" style="transition-delay: 0.2s">
-                        <div class="flex gap-1 mb-4 text-amber-400">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <div class="card-premium rounded-2xl p-6 scroll-reveal" style="transition-delay: 0.2s">
+                        <div class="flex gap-1 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
                         </div>
-                        <p class="text-gray-300 mb-6" data-i18n="testimonial_3_text">My wallet was returned with all my cards and cash. I'm forever grateful to Reunite.</p>
+                        <p class="text-gray-300 text-sm mb-5" data-i18n="testimonial_3_text">My wallet was returned with all my cards and cash. I'm forever grateful to Reunite.</p>
                         <div class="flex items-center gap-3">
-                            <img src="http://static.photos/people/48x48/3" class="w-10 h-10 rounded-full border-2 border-brand-500" alt="User">
+                            <img src="http://static.photos/people/48x48/3" class="w-10 h-10 rounded-full border border-brand-500/30" alt="User">
                             <div>
-                                <div class="font-semibold text-white" data-i18n="testimonial_3_name">John D.</div>
-                                <div class="text-sm text-gray-400" data-i18n="testimonial_3_loc">New York, USA</div>
+                                <div class="font-semibold text-white text-sm" data-i18n="testimonial_3_name">John D.</div>
+                                <div class="text-xs text-gray-500" data-i18n="testimonial_3_loc">New York, USA</div>
                             </div>
                         </div>
                     </div>
@@ -652,12 +707,12 @@
             </div>
         </section>
 
-        <!-- CTA - Premium -->
-        <section class="py-20 hero-gradient-premium relative overflow-hidden">
+        <!-- CTA -->
+        <section class="py-20 relative overflow-hidden">
             <div class="floating-orb w-96 h-96 bg-brand-600" style="top: -20%; right: -10%;"></div>
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 scroll-reveal">
                 <h2 class="font-heading text-4xl sm:text-5xl font-bold text-white mb-6" data-i18n="cta_title">Ready to find what's lost?</h2>
-                <p class="text-xl text-gray-300 mb-10" data-i18n="cta_subtitle">Join millions who have reunited with their belongings. It's fast, free, and easy.</p>
+                <p class="text-xl text-gray-400 mb-10" data-i18n="cta_subtitle">Join millions who have reunited with their belongings. It's fast, free, and easy.</p>
                 <button onclick="navigateTo('report-lost')" class="inline-flex items-center gap-2 btn-premium text-white px-10 py-5 rounded-xl text-lg font-bold transition min-w-[220px] justify-center group">
                     <i data-lucide="zap" class="w-5 h-5 group-hover:rotate-12 transition"></i>
                     <span data-i18n="cta_btn">Report Lost Item</span>
@@ -668,7 +723,7 @@
 
     <!-- ==================== CATALOG PAGE ==================== -->
     <div id="page-catalog" class="page">
-        <div class="pt-20 pb-12 bg-gray-950 min-h-screen">
+        <div class="pt-20 pb-12 min-h-screen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mb-8 scroll-reveal">
                     <h1 class="font-heading text-4xl font-bold text-white mb-2" data-i18n="catalog_title">Lost & Found Catalog</h1>
@@ -678,9 +733,9 @@
                 <div class="flex flex-col sm:flex-row gap-4 mb-8 scroll-reveal" style="transition-delay: 0.1s">
                     <div class="relative flex-1">
                         <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
-                        <input type="text" id="catalog-search" data-i18n-placeholder="catalog_search_placeholder" placeholder="Search by title or location..." class="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white placeholder-gray-500">
+                        <input type="text" id="catalog-search" data-i18n-placeholder="catalog_search_placeholder" placeholder="Search by title or location..." class="input-premium w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white placeholder-gray-500">
                     </div>
-                    <select id="catalog-status" onchange="filterCatalog()" class="px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:border-brand-500 transition text-white">
+                    <select id="catalog-status" onchange="filterCatalog()" class="input-premium px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white">
                         <option value="all" data-i18n="catalog_filter_all">All Items</option>
                         <option value="lost" data-i18n="catalog_filter_lost">Lost</option>
                         <option value="found" data-i18n="catalog_filter_found">Found</option>
@@ -688,8 +743,7 @@
                     </select>
                 </div>
                 
-                <div id="catalog-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                </div>
+                <div id="catalog-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
                 <div id="catalog-empty" class="hidden text-center py-16">
                     <i data-lucide="package-open" class="w-16 h-16 mx-auto text-gray-600 mb-4"></i>
                     <p class="text-gray-400 text-lg" data-i18n="catalog_empty">No items match your filters.</p>
@@ -700,10 +754,10 @@
 
     <!-- ==================== REPORT LOST PAGE ==================== -->
     <div id="page-report-lost" class="page">
-        <div class="pt-24 pb-16 min-h-screen bg-gray-950">
+        <div class="pt-24 pb-16 min-h-screen">
             <div class="max-w-2xl mx-auto px-4">
                 <div class="text-center mb-10 scroll-reveal">
-                    <div class="w-16 h-16 bg-gradient-to-br from-red-500/20 to-red-600/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-500/10 to-red-600/5 rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="alert-circle" class="w-8 h-8 text-red-400"></i>
                     </div>
                     <h1 class="font-heading text-4xl font-bold text-white mb-2" data-i18n="report_lost_title">Report a Lost Item</h1>
@@ -712,28 +766,28 @@
                 
                 <div class="card-premium rounded-2xl p-8 scroll-reveal" style="transition-delay: 0.1s">
                     <form id="lost-form" onsubmit="submitLostReport(event)">
-                        <div class="space-y-6">
+                        <div class="space-y-5">
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_title">Item Title *</label>
-                                <input type="text" id="lost-title" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white placeholder-gray-500" data-i18n-placeholder="form_title_placeholder" placeholder="e.g., Brown leather wallet">
+                                <input type="text" id="lost-title" required class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_title_placeholder" placeholder="e.g., Brown leather wallet">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_description">Description</label>
-                                <textarea id="lost-description" rows="3" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white placeholder-gray-500" data-i18n-placeholder="form_desc_placeholder" placeholder="Brand, color, distinguishing features..."></textarea>
+                                <textarea id="lost-description" rows="3" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_desc_placeholder" placeholder="Brand, color, distinguishing features..."></textarea>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_location">Location</label>
-                                    <input type="text" id="lost-location" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white placeholder-gray-500" data-i18n-placeholder="form_location_placeholder" placeholder="e.g., Central Park, New York">
+                                    <input type="text" id="lost-location" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_location_placeholder" placeholder="e.g., Central Park, New York">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_date">Date Lost</label>
-                                    <input type="date" id="lost-date" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white">
+                                    <input type="date" id="lost-date" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_category">Category</label>
-                                <select id="lost-category" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white">
+                                <select id="lost-category" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white">
                                     <option value="Electronics" data-i18n="cat_electronics">Electronics</option>
                                     <option value="Pets" data-i18n="cat_pets">Pets</option>
                                     <option value="Documents" data-i18n="cat_documents">Documents</option>
@@ -743,9 +797,9 @@
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_image_url">Image URL (optional)</label>
-                                <input type="url" id="lost-image" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white placeholder-gray-500" data-i18n-placeholder="form_image_placeholder" placeholder="https://example.com/photo.jpg">
+                                <input type="url" id="lost-image" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_image_placeholder" placeholder="https://example.com/photo.jpg">
                             </div>
-                            <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 text-white py-3.5 rounded-xl font-semibold text-lg transition flex items-center justify-center gap-2">
+                            <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 text-white py-3.5 rounded-xl font-semibold transition flex items-center justify-center gap-2">
                                 <i data-lucide="send" class="w-5 h-5"></i>
                                 <span data-i18n="form_submit_lost">Report Lost Item</span>
                             </button>
@@ -758,10 +812,10 @@
 
     <!-- ==================== REPORT FOUND PAGE ==================== -->
     <div id="page-report-found" class="page">
-        <div class="pt-24 pb-16 min-h-screen bg-gray-950">
+        <div class="pt-24 pb-16 min-h-screen">
             <div class="max-w-2xl mx-auto px-4">
                 <div class="text-center mb-10 scroll-reveal">
-                    <div class="w-16 h-16 bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500/10 to-green-600/5 rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="check-circle" class="w-8 h-8 text-green-400"></i>
                     </div>
                     <h1 class="font-heading text-4xl font-bold text-white mb-2" data-i18n="report_found_title">Report a Found Item</h1>
@@ -770,28 +824,28 @@
                 
                 <div class="card-premium rounded-2xl p-8 scroll-reveal" style="transition-delay: 0.1s">
                     <form id="found-form" onsubmit="submitFoundReport(event)">
-                        <div class="space-y-6">
+                        <div class="space-y-5">
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_title">Item Title *</label>
-                                <input type="text" id="found-title" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white placeholder-gray-500" data-i18n-placeholder="form_title_placeholder" placeholder="e.g., Black umbrella">
+                                <input type="text" id="found-title" required class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_title_placeholder" placeholder="e.g., Black umbrella">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_description">Description</label>
-                                <textarea id="found-description" rows="3" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white placeholder-gray-500" data-i18n-placeholder="form_desc_placeholder" placeholder="Color, brand, any marks..."></textarea>
+                                <textarea id="found-description" rows="3" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_desc_placeholder" placeholder="Color, brand, any marks..."></textarea>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_location">Location</label>
-                                    <input type="text" id="found-location" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white placeholder-gray-500" data-i18n-placeholder="form_location_placeholder" placeholder="e.g., Metro Station">
+                                    <input type="text" id="found-location" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_location_placeholder" placeholder="e.g., Metro Station">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_date">Date Found</label>
-                                    <input type="date" id="found-date" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white">
+                                    <input type="date" id="found-date" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_category">Category</label>
-                                <select id="found-category" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white">
+                                <select id="found-category" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white">
                                     <option value="Electronics" data-i18n="cat_electronics">Electronics</option>
                                     <option value="Pets" data-i18n="cat_pets">Pets</option>
                                     <option value="Documents" data-i18n="cat_documents">Documents</option>
@@ -801,9 +855,9 @@
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_image_url">Image URL (optional)</label>
-                                <input type="url" id="found-image" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition text-white placeholder-gray-500" data-i18n-placeholder="form_image_placeholder" placeholder="https://example.com/photo.jpg">
+                                <input type="url" id="found-image" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_image_placeholder" placeholder="https://example.com/photo.jpg">
                             </div>
-                            <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white py-3.5 rounded-xl font-semibold text-lg transition flex items-center justify-center gap-2">
+                            <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white py-3.5 rounded-xl font-semibold transition flex items-center justify-center gap-2">
                                 <i data-lucide="send" class="w-5 h-5"></i>
                                 <span data-i18n="form_submit_found">Report Found Item</span>
                             </button>
@@ -816,58 +870,61 @@
 
     <!-- ==================== PRICING PAGE ==================== -->
     <div id="page-pricing" class="page">
-        <div class="pt-24 pb-20 bg-gray-950 min-h-screen">
+        <div class="pt-24 pb-20 min-h-screen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 scroll-reveal">
-                    <span class="inline-block bg-brand-500/20 text-brand-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 backdrop-blur-sm border border-brand-500/30" data-i18n="pricing_badge">PRICING</span>
+                    <span class="inline-block bg-brand-500/10 text-brand-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-brand-500/20" data-i18n="pricing_badge">PRICING</span>
                     <h1 class="font-heading text-4xl sm:text-5xl font-bold text-white mb-4" data-i18n="pricing_title">Choose your plan</h1>
                     <p class="text-xl text-gray-400 max-w-2xl mx-auto" data-i18n="pricing_subtitle">Start for free, upgrade as you grow.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <div class="card-premium rounded-2xl p-8 flex flex-col scroll-reveal">
-                        <h3 class="font-heading font-bold text-xl text-white mb-2" data-i18n="plan_free_name">Free</h3>
-                        <p class="text-gray-400 mb-6" data-i18n="plan_free_desc">For individuals testing the waters.</p>
-                        <div class="mb-6">
-                            <span class="text-5xl font-bold text-white">$0</span><span class="text-gray-400">/mo</span>
+                    <!-- Free Plan -->
+                    <div class="card-premium rounded-2xl p-6 flex flex-col scroll-reveal">
+                        <h3 class="font-heading font-bold text-xl text-white mb-1" data-i18n="plan_free_name">Free</h3>
+                        <p class="text-gray-400 text-sm mb-4" data-i18n="plan_free_desc">For individuals testing the waters.</p>
+                        <div class="mb-4">
+                            <span class="text-4xl font-bold text-white">$0</span><span class="text-gray-400">/mo</span>
                         </div>
-                        <ul class="space-y-3 flex-1 mb-8">
-                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_free_feature1">1 item listing per month</span></li>
-                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_free_feature2">Basic matching</span></li>
-                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_free_feature3">Community support</span></li>
+                        <ul class="space-y-2 flex-1 mb-6">
+                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_free_feature1">1 item listing per month</span></li>
+                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_free_feature2">Basic matching</span></li>
+                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_free_feature3">Community support</span></li>
                         </ul>
-                        <button class="w-full py-3 border-2 border-brand-500 text-brand-400 rounded-xl font-semibold hover:bg-brand-500/10 transition" data-i18n="plan_select">Get Started</button>
+                        <button class="btn-outline-premium w-full py-2.5 text-brand-400 rounded-xl font-semibold transition" data-i18n="plan_select">Get Started</button>
                     </div>
                     
-                    <div class="card-premium rounded-2xl p-8 flex flex-col relative border-2 border-brand-500 scale-105 scroll-reveal" style="transition-delay: 0.1s">
-                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-600 to-brand-400 text-white px-4 py-1 rounded-full text-xs font-bold">MOST POPULAR</div>
-                        <h3 class="font-heading font-bold text-xl text-brand-400 mb-2" data-i18n="plan_pro_name">Pro</h3>
-                        <p class="text-gray-400 mb-6" data-i18n="plan_pro_desc">For active finders and seekers.</p>
-                        <div class="mb-6">
-                            <span class="text-5xl font-bold text-white">$9.99</span><span class="text-gray-400">/mo</span>
+                    <!-- Pro Plan - Highlighted -->
+                    <div class="card-premium rounded-2xl p-6 flex flex-col relative border-2 border-brand-500 scale-105 scroll-reveal" style="transition-delay: 0.1s">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-600 to-brand-500 text-white px-3 py-0.5 rounded-full text-xs font-bold">MOST POPULAR</div>
+                        <h3 class="font-heading font-bold text-xl text-brand-400 mb-1" data-i18n="plan_pro_name">Pro</h3>
+                        <p class="text-gray-400 text-sm mb-4" data-i18n="plan_pro_desc">For active finders and seekers.</p>
+                        <div class="mb-4">
+                            <span class="text-4xl font-bold text-white">$9.99</span><span class="text-gray-400">/mo</span>
                         </div>
-                        <ul class="space-y-3 flex-1 mb-8">
-                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature1">Up to 5 item listings per month</span></li>
-                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature2">Priority matching</span></li>
-                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature3">Enhanced photos</span></li>
-                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature4">Email notifications</span></li>
+                        <ul class="space-y-2 flex-1 mb-6">
+                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_pro_feature1">Up to 5 item listings</span></li>
+                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_pro_feature2">Priority matching</span></li>
+                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_pro_feature3">Enhanced photos</span></li>
+                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_pro_feature4">Email notifications</span></li>
                         </ul>
-                        <button class="w-full py-3 bg-gradient-to-r from-brand-600 to-brand-500 text-white rounded-xl font-semibold hover:from-brand-500 hover:to-brand-600 transition" data-i18n="plan_select">Choose Pro</button>
+                        <button class="btn-premium w-full py-2.5 text-white rounded-xl font-semibold transition" data-i18n="plan_select">Choose Pro</button>
                     </div>
                     
-                    <div class="card-premium rounded-2xl p-8 flex flex-col scroll-reveal" style="transition-delay: 0.2s">
-                        <h3 class="font-heading font-bold text-xl text-white mb-2" data-i18n="plan_enterprise_name">Enterprise</h3>
-                        <p class="text-gray-400 mb-6" data-i18n="plan_enterprise_desc">For organizations and high volume.</p>
-                        <div class="mb-6">
-                            <span class="text-5xl font-bold text-white">$49.99</span><span class="text-gray-400">/mo</span>
+                    <!-- Enterprise Plan -->
+                    <div class="card-premium rounded-2xl p-6 flex flex-col scroll-reveal" style="transition-delay: 0.2s">
+                        <h3 class="font-heading font-bold text-xl text-white mb-1" data-i18n="plan_enterprise_name">Enterprise</h3>
+                        <p class="text-gray-400 text-sm mb-4" data-i18n="plan_enterprise_desc">For organizations and high volume.</p>
+                        <div class="mb-4">
+                            <span class="text-4xl font-bold text-white">$49.99</span><span class="text-gray-400">/mo</span>
                         </div>
-                        <ul class="space-y-3 flex-1 mb-8">
-                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature1">Unlimited listings</span></li>
-                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature2">API access</span></li>
-                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature3">Dedicated support</span></li>
-                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature4">Custom branding</span></li>
+                        <ul class="space-y-2 flex-1 mb-6">
+                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_enterprise_feature1">Unlimited listings</span></li>
+                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_enterprise_feature2">API access</span></li>
+                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_enterprise_feature3">Dedicated support</span></li>
+                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_enterprise_feature4">Custom branding</span></li>
                         </ul>
-                        <button class="w-full py-3 border-2 border-brand-500 text-brand-400 rounded-xl font-semibold hover:bg-brand-500/10 transition" data-i18n="plan_select">Contact Sales</button>
+                        <button class="btn-outline-premium w-full py-2.5 text-brand-400 rounded-xl font-semibold transition" data-i18n="plan_select">Contact Sales</button>
                     </div>
                 </div>
             </div>
@@ -875,25 +932,25 @@
     </div>
 
     <!-- Item Detail Modal -->
-    <div id="item-modal" class="fixed inset-0 z-[200] bg-black/80 backdrop-blur-md hidden items-center justify-center" onclick="closeItemModal()">
+    <div id="item-modal" class="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm hidden items-center justify-center" onclick="closeItemModal()">
         <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl max-w-lg w-full mx-4 overflow-hidden shadow-2xl scale-in" onclick="event.stopPropagation()">
             <div class="relative">
-                <img id="modal-image" src="" alt="Item" class="w-full h-64 object-cover">
+                <img id="modal-image" src="" alt="Item" class="w-full h-56 object-cover">
                 <button onclick="closeItemModal()" class="absolute top-4 right-4 w-8 h-8 bg-black/50 rounded-full flex items-center justify-center hover:bg-black/70 transition">
-                    <i data-lucide="x" class="w-5 h-5 text-white"></i>
+                    <i data-lucide="x" class="w-4 h-4 text-white"></i>
                 </button>
             </div>
             <div class="p-6">
                 <div class="flex items-center gap-2 mb-3">
-                    <span id="modal-status" class="px-3 py-1 text-xs font-semibold rounded-full"></span>
+                    <span id="modal-status" class="px-2 py-0.5 text-xs font-semibold rounded-full"></span>
                 </div>
-                <h3 id="modal-title" class="font-heading font-bold text-2xl text-white mb-2"></h3>
-                <p id="modal-description" class="text-gray-300 mb-4"></p>
-                <div class="flex items-center gap-4 text-sm text-gray-400 mb-6">
-                    <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> <span id="modal-location"></span></span>
-                    <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> <span id="modal-date"></span></span>
+                <h3 id="modal-title" class="font-heading font-bold text-xl text-white mb-2"></h3>
+                <p id="modal-description" class="text-gray-300 text-sm mb-4"></p>
+                <div class="flex items-center gap-4 text-sm text-gray-400 mb-5">
+                    <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> <span id="modal-location"></span></span>
+                    <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> <span id="modal-date"></span></span>
                 </div>
-                <button onclick="contactItem()" class="w-full bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-white py-3 rounded-xl font-semibold transition" data-i18n="modal_contact">Contact Owner / Finder</button>
+                <button onclick="contactItem()" class="w-full btn-premium text-white py-2.5 rounded-xl font-semibold transition" data-i18n="modal_contact">Contact Owner / Finder</button>
             </div>
         </div>
     </div>
@@ -901,7 +958,6 @@
 <script>
     // === Core App Logic ===
 
-    // Global items database
     const allItems = [
         { id: 1, type: 'lost', title: 'Golden Retriever', description: 'Lost near Central Park', location: 'Moscow, RU', date: '2025-01-15', status: 'reunited', image: 'http://static.photos/nature/320x240/42' },
         { id: 2, type: 'found', title: 'MacBook Pro 16"', description: 'Found at airport lounge', location: 'Berlin, DE', date: '2025-02-20', status: 'reunited', image: 'http://static.photos/technology/320x240/15' },
@@ -913,56 +969,6 @@
         { id: 8, type: 'found', title: 'Necklace', description: 'Gold necklace found in park', location: 'Sydney, AU', date: '2025-03-11', status: 'found', image: 'http://static.photos/people/320x240/55' }
     ];
 
-    // Particle Animation
-    function initParticles() {
-        const canvas = document.getElementById('particle-canvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const particles = [];
-        const particleCount = 50;
-        
-        for (let i = 0; i < particleCount; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                radius: Math.random() * 3 + 1,
-                alpha: Math.random() * 0.5,
-                speedX: (Math.random() - 0.5) * 0.5,
-                speedY: (Math.random() - 0.5) * 0.5
-            });
-        }
-        
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.x += p.speedX;
-                p.y += p.speedY;
-                if (p.x < 0) p.x = canvas.width;
-                if (p.x > canvas.width) p.x = 0;
-                if (p.y < 0) p.y = canvas.height;
-                if (p.y > canvas.height) p.y = 0;
-                
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(20, 87, 225, ${p.alpha})`;
-                ctx.fill();
-            });
-            requestAnimationFrame(animate);
-        }
-        animate();
-    }
-    
-    window.addEventListener('resize', () => {
-        const canvas = document.getElementById('particle-canvas');
-        if (canvas) {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-    });
-    
     // GSAP Scroll Animations
     function initScrollAnimations() {
         if (typeof gsap === 'undefined') return;
@@ -970,16 +976,15 @@
         
         gsap.utils.toArray('.scroll-reveal').forEach((el, i) => {
             gsap.fromTo(el, 
-                { opacity: 0, y: 50 },
+                { opacity: 0, y: 40 },
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 0.8,
-                    delay: i * 0.1,
+                    duration: 0.6,
+                    delay: i * 0.08,
                     scrollTrigger: {
                         trigger: el,
                         start: 'top 85%',
-                        end: 'bottom 60%',
                         toggleActions: 'play none none reverse'
                     }
                 }
@@ -987,17 +992,8 @@
         });
     }
     
-    // Mouse follower
-    document.addEventListener('mousemove', (e) => {
-        const follower = document.querySelector('.mouse-follower');
-        if (follower) {
-            follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-        }
-    });
-    
     let isNavigating = false;
 
-    // Page navigation
     function navigateTo(page) {
         if (isNavigating) return;
         isNavigating = true;
@@ -1047,8 +1043,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         if (isInitialLoad) return;
         isInitialLoad = true;
-        initParticles();
-        setTimeout(initScrollAnimations, 500);
+        setTimeout(initScrollAnimations, 300);
         let page = window.location.hash.replace('#', '');
         if (!page || page === '') page = 'home';
         navigateTo(page);
@@ -1099,12 +1094,12 @@
         } else {
             resultsContainer.innerHTML = filtered.map(item => `
                 <div class="flex items-center gap-4 p-4 hover:bg-white/5 border-b border-white/10 cursor-pointer transition" onclick="openItemModal(${item.id})">
-                    <img src="${item.image}" alt="${escapeHtml(item.title)}" class="w-14 h-14 rounded-lg object-cover">
+                    <img src="${item.image}" alt="${escapeHtml(item.title)}" class="w-12 h-12 rounded-lg object-cover">
                     <div class="flex-1">
-                        <div class="font-semibold text-white">${escapeHtml(item.title)}</div>
-                        <div class="text-sm text-gray-400">${escapeHtml(item.location)} · ${item.date}</div>
+                        <div class="font-semibold text-white text-sm">${escapeHtml(item.title)}</div>
+                        <div class="text-xs text-gray-400">${escapeHtml(item.location)} · ${item.date}</div>
                     </div>
-                    <span class="px-2 py-1 text-xs font-semibold rounded-full ${item.status === 'lost' ? 'bg-red-500/20 text-red-400' : item.status === 'found' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'}">${item.status.toUpperCase()}</span>
+                    <span class="px-2 py-0.5 text-xs font-semibold rounded-full ${item.status === 'lost' ? 'status-badge-lost' : item.status === 'found' ? 'status-badge-found' : 'status-badge-reunited'}">${item.status.toUpperCase()}</span>
                 </div>
             `).join('');
         }
@@ -1125,10 +1120,10 @@
         const container = document.getElementById('toast-container');
         const toast = document.createElement('div');
         const bgColor = type === 'success' ? 'bg-green-500/20 border-green-500/30 text-green-400' : 'bg-blue-500/20 border-blue-500/30 text-blue-400';
-        toast.className = `toast flex items-center gap-3 px-5 py-4 rounded-xl border shadow-lg ${bgColor} backdrop-blur-sm`;
+        toast.className = `toast flex items-center gap-3 px-4 py-3 rounded-xl border shadow-lg ${bgColor} backdrop-blur-sm`;
         toast.innerHTML = `
-            <i data-lucide="${type === 'success' ? 'check-circle' : 'info'}" class="w-5 h-5"></i>
-            <span>${message}</span>
+            <i data-lucide="${type === 'success' ? 'check-circle' : 'info'}" class="w-4 h-4"></i>
+            <span class="text-sm">${message}</span>
         `;
         container.appendChild(toast);
         if (typeof lucide !== 'undefined') lucide.createIcons();
@@ -1176,15 +1171,20 @@
         } else {
             if (emptyEl) emptyEl.classList.add('hidden');
             grid.innerHTML = items.map(item => `
-                <div class="card-premium rounded-2xl overflow-hidden cursor-pointer group" onclick="openItemModal(${item.id})">
+                <div class="catalog-card rounded-2xl overflow-hidden cursor-pointer group" onclick="openItemModal(${item.id})">
                     <div class="relative h-48 overflow-hidden">
-                        <img src="${item.image || 'http://static.photos/technology/320x240/42'}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <span class="absolute top-3 right-3 px-2 py-1 text-xs font-semibold rounded-full ${item.status === 'lost' ? 'bg-red-500/20 text-red-400' : item.status === 'found' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'} backdrop-blur-sm">${item.status.toUpperCase()}</span>
+                        <img src="${item.image || 'http://static.photos/technology/320x240/42'}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                        <span class="absolute top-3 right-3 px-2 py-0.5 text-xs font-semibold rounded-full ${item.status === 'lost' ? 'status-badge-lost' : item.status === 'found' ? 'status-badge-found' : 'status-badge-reunited'} backdrop-blur-sm">${item.status.toUpperCase()}</span>
                     </div>
-                    <div class="p-5">
-                        <h3 class="font-heading font-bold text-lg text-white mb-1">${escapeHtml(item.title)}</h3>
-                        <p class="text-sm text-gray-400 flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> ${escapeHtml(item.location)}</p>
-                        <p class="text-sm text-gray-500 mt-1">${item.date}</p>
+                    <div class="p-4">
+                        <h3 class="font-heading font-bold text-white text-lg mb-1">${escapeHtml(item.title)}</h3>
+                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i>
+                            <span>${escapeHtml(item.location)}</span>
+                            <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                            <span>${item.date}</span>
+                        </div>
                     </div>
                 </div>
             `).join('');
@@ -1203,10 +1203,10 @@
         document.getElementById('modal-date').textContent = item.date;
         const statusEl = document.getElementById('modal-status');
         statusEl.textContent = item.status.toUpperCase();
-        statusEl.className = 'px-3 py-1 text-xs font-semibold rounded-full ' + 
-            (item.status === 'lost' ? 'bg-red-500/20 text-red-400' : 
-             item.status === 'found' ? 'bg-green-500/20 text-green-400' : 
-             'bg-blue-500/20 text-blue-400');
+        statusEl.className = 'px-2 py-0.5 text-xs font-semibold rounded-full ' + 
+            (item.status === 'lost' ? 'status-badge-lost' : 
+             item.status === 'found' ? 'status-badge-found' : 
+             'status-badge-reunited');
         if (modal) {
             modal.dataset.itemId = id;
             modal.classList.remove('hidden');
