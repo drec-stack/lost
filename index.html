@@ -212,7 +212,7 @@
                         <i data-lucide="globe" class="w-4 h-4 text-gray-500"></i>
                         <span id="lang-label">RU</span>
                     </button>
-                    <button onclick="navigateTo('report-lost')" class="hidden sm:inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+                    <button onclick="navigateTo('report-lost')" class="hidden sm:inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition min-w-[130px]">
                         <i data-lucide="plus" class="w-4 h-4"></i>
                         <span data-i18n="nav_report_item">Report Item</span>
                     </button>
@@ -279,26 +279,26 @@
                             The world's largest lost & found network. Report, search, and reunite with your belongings — powered by a global community.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <button onclick="navigateTo('report-lost')" class="inline-flex items-center gap-2 bg-white text-brand-800 px-8 py-4 rounded-xl text-lg font-bold hover:bg-blue-50 transition shadow-lg shadow-brand-900/30">
+                            <button onclick="navigateTo('report-lost')" class="inline-flex items-center gap-2 bg-white text-brand-800 px-8 py-4 rounded-xl text-lg font-bold hover:bg-blue-50 transition shadow-lg shadow-brand-900/30 min-w-[200px] justify-center">
                                 <i data-lucide="alert-circle" class="w-5 h-5"></i>
                                 <span data-i18n="hero_btn_lost">I Lost Something</span>
                             </button>
-                            <button onclick="navigateTo('report-found')" class="inline-flex items-center gap-2 glass text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/15 transition">
+                            <button onclick="navigateTo('report-found')" class="inline-flex items-center gap-2 glass text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/15 transition min-w-[200px] justify-center">
                                 <i data-lucide="check-circle" class="w-5 h-5"></i>
                                 <span data-i18n="hero_btn_found">I Found Something</span>
                             </button>
                         </div>
                         
                         <div class="flex items-center gap-8 mt-12 pt-8 border-t border-white/10">
-                            <div>
+                            <div class="min-w-[100px]">
                                 <div class="text-3xl font-bold text-white">2.4M+</div>
                                 <div class="text-sm text-blue-200/60" data-i18n="hero_stat_items">Items Listed</div>
                             </div>
-                            <div>
+                            <div class="min-w-[100px]">
                                 <div class="text-3xl font-bold text-white">180+</div>
                                 <div class="text-sm text-blue-200/60" data-i18n="hero_stat_countries">Countries</div>
                             </div>
-                            <div>
+                            <div class="min-w-[100px]">
                                 <div class="text-3xl font-bold text-white">67%</div>
                                 <div class="text-sm text-blue-200/60" data-i18n="hero_stat_rate">Reunion Rate</div>
                             </div>
@@ -356,34 +356,690 @@
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center group">
+                    <div class="text-center group h-full flex flex-col">
                         <div class="w-20 h-20 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-red-100 transition">
                             <i data-lucide="file-plus" class="w-9 h-9 text-red-500"></i>
                         </div>
                         <div class="text-sm font-bold text-brand-600 mb-2" data-i18n="hiw_step1_label">STEP 1</div>
                         <h3 class="font-heading text-xl font-bold mb-3" data-i18n="hiw_step1_title">Report Your Item</h3>
-                        <p class="text-gray-500 leading-relaxed" data-i18n="hiw_step1_desc">Describe what you lost or found, add photos, and specify the location and date. Takes under 2 minutes.</p>
+                        <p class="text-gray-500 leading-relaxed flex-grow" data-i18n="hiw_step1_desc">Describe what you lost or found, add photos, and specify the location and date. Takes under 2 minutes.</p>
                     </div>
-                    <div class="text-center group">
+                    <div class="text-center group h-full flex flex-col">
                         <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-100 transition">
                             <i data-lucide="scan-search" class="w-9 h-9 text-brand-600"></i>
                         </div>
                         <div class="text-sm font-bold text-brand-600 mb-2" data-i18n="hiw_step2_label">STEP 2</div>
                         <h3 class="font-heading text-xl font-bold mb-3" data-i18n="hiw_step2_title">AI Matches Items</h3>
-                        <p class="text-gray-500 leading-relaxed" data-i18n="hiw_step2_desc">Our intelligent system matches lost items with found reports, comparing descriptions, photos, and locations.</p>
+                        <p class="text-gray-500 leading-relaxed flex-grow" data-i18n="hiw_step2_desc">Our intelligent system matches lost items with found reports, comparing descriptions, photos, and locations.</p>
                     </div>
-                    <div class="text-center group">
+                    <div class="text-center group h-full flex flex-col">
                         <div class="w-20 h-20 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-100 transition">
                             <i data-lucide="handshake" class="w-9 h-9 text-green-600"></i>
                         </div>
                         <div class="text-sm font-bold text-brand-600 mb-2" data-i18n="hiw_step3_label">STEP 3</div>
                         <h3 class="font-heading text-xl font-bold mb-3" data-i18n="hiw_step3_title">Get Reunited</h3>
-                        <p class="text-gray-500 leading-relaxed" data-i18n="hiw_step3_desc">Connect with the finder or owner through our secure messaging system and arrange the handoff.</p>
+                        <p class="text-gray-500 leading-relaxed flex-grow" data-i18n="hiw_step3_desc">Connect with the finder or owner through our secure messaging system and arrange the handoff.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Recent Activity -->
-        <section
-<script src="https://deepsite.hf.co/deepsite-badge.js"></script>
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="inline-block bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4" data-i18n="recent_badge">RECENTLY REUNITED</span>
+                    <h2 class="font-heading text-4xl sm:text-5xl font-bold text-gray-900 mb-4" data-i18n="recent_title">Happy reunions, happening daily</h2>
+                    <p class="text-xl text-gray-500 max-w-2xl mx-auto" data-i18n="recent_subtitle">Real stories of items that found their way back to their owners through Reunite.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-2xl p-5 card-hover shadow-sm border border-gray-100">
+                        <img src="http://static.photos/nature/320x240/42" alt="Item" class="w-full h-40 object-cover rounded-xl mb-4">
+                        <span class="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
+                        <h4 class="font-heading font-bold text-gray-900 mb-1">Golden Retriever</h4>
+                        <p class="text-sm text-gray-400">Moscow, RU • 2 days ago</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-2xl p-5 card-hover shadow-sm border border-gray-100">
+                        <img src="http://static.photos/technology/320x240/15" alt="Item" class="w-full h-40 object-cover rounded-xl mb-4">
+                        <span class="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
+                        <h4 class="font-heading font-bold text-gray-900 mb-1">MacBook Pro 16"</h4>
+                        <p class="text-sm text-gray-400">Berlin, DE • 5 hours ago</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-2xl p-5 card-hover shadow-sm border border-gray-100">
+                        <img src="http://static.photos/people/320x240/88" alt="Item" class="w-full h-40 object-cover rounded-xl mb-4">
+                        <span class="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
+                        <h4 class="font-heading font-bold text-gray-900 mb-1">Wedding Ring</h4>
+                        <p class="text-sm text-gray-400">Tokyo, JP • 1 week ago</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-2xl p-5 card-hover shadow-sm border border-gray-100">
+                        <img src="http://static.photos/office/320x240/12" alt="Item" class="w-full h-40 object-cover rounded-xl mb-4">
+                        <span class="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
+                        <h4 class="font-heading font-bold text-gray-900 mb-1">Passport</h4>
+                        <p class="text-sm text-gray-400">London, UK • 3 days ago</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="inline-block bg-purple-100 text-purple-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4" data-i18n="testimonials_badge">TESTIMONIALS</span>
+                    <h2 class="font-heading text-4xl sm:text-5xl font-bold text-gray-900 mb-4" data-i18n="testimonials_title">Loved by thousands</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                        <div class="flex gap-1 mb-4 text-amber-400">
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6" data-i18n="testimonial_1_text">I couldn't believe it when someone found my lost drone! Reunite's community is amazing.</p>
+                        <div class="flex items-center gap-3">
+                            <img src="http://static.photos/people/48x48/1" class="w-10 h-10 rounded-full" alt="User">
+                            <div>
+                                <div class="font-semibold text-gray-900">Alex K.</div>
+                                <div class="text-sm text-gray-400">Berlin, Germany</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                        <div class="flex gap-1 mb-4 text-amber-400">
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6" data-i18n="testimonial_2_text">We found a lost cat and within hours the owner contacted us. This site is magical!</p>
+                        <div class="flex items-center gap-3">
+                            <img src="http://static.photos/people/48x48/2" class="w-10 h-10 rounded-full" alt="User">
+                            <div>
+                                <div class="font-semibold text-gray-900">Maria S.</div>
+                                <div class="text-sm text-gray-400">Paris, France</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                        <div class="flex gap-1 mb-4 text-amber-400">
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6" data-i18n="testimonial_3_text">My wallet was returned with all my cards and cash. I'm forever grateful to Reunite.</p>
+                        <div class="flex items-center gap-3">
+                            <img src="http://static.photos/people/48x48/3" class="w-10 h-10 rounded-full" alt="User">
+                            <div>
+                                <div class="font-semibold text-gray-900">John D.</div>
+                                <div class="text-sm text-gray-400">New York, USA</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-20 hero-gradient relative overflow-hidden">
+            <div class="absolute inset-0">
+                <div class="absolute top-10 right-10 w-80 h-80 bg-brand-400/10 rounded-full blur-3xl"></div>
+            </div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h2 class="font-heading text-4xl sm:text-5xl font-bold text-white mb-6" data-i18n="cta_title">Ready to find what's lost?</h2>
+                <p class="text-xl text-blue-100/80 mb-10" data-i18n="cta_subtitle">Join millions who have reunited with their belongings. It's fast, free, and easy.</p>
+                <button onclick="navigateTo('report-lost')" class="inline-flex items-center gap-2 bg-white text-brand-800 px-10 py-5 rounded-xl text-lg font-bold hover:bg-blue-50 transition shadow-xl min-w-[220px] justify-center">
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                    <span data-i18n="cta_btn">Report Lost Item</span>
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== CATALOG PAGE ==================== -->
+    <div id="page-catalog" class="page">
+        <div class="pt-20 pb-12 bg-white min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <h1 class="font-heading text-4xl font-bold text-gray-900 mb-2" data-i18n="catalog_title">Lost & Found Catalog</h1>
+                    <p class="text-gray-500" data-i18n="catalog_subtitle">Browse reported items worldwide. Use filters to find matches.</p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <div class="relative flex-1">
+                        <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                        <input type="text" id="catalog-search" data-i18n-placeholder="catalog_search_placeholder" placeholder="Search by title or location..." class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition" oninput="filterCatalog()">
+                    </div>
+                    <select id="catalog-status" onchange="filterCatalog()" class="px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-brand-600 transition bg-white">
+                        <option value="all" data-i18n="catalog_filter_all">All Items</option>
+                        <option value="lost" data-i18n="catalog_filter_lost">Lost</option>
+                        <option value="found" data-i18n="catalog_filter_found">Found</option>
+                        <option value="reunited" data-i18n="catalog_filter_reunited">Reunited</option>
+                    </select>
+                </div>
+                
+                <div id="catalog-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+                <div id="catalog-empty" class="hidden text-center py-16">
+                    <i data-lucide="package-open" class="w-16 h-16 mx-auto text-gray-300 mb-4"></i>
+                    <p class="text-gray-500 text-lg" data-i18n="catalog_empty">No items match your filters.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== REPORT LOST PAGE ==================== -->
+    <div id="page-report-lost" class="page">
+        <div class="pt-24 pb-16 min-h-screen bg-gray-50">
+            <div class="max-w-2xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="alert-circle" class="w-8 h-8 text-red-600"></i>
+                    </div>
+                    <h1 class="font-heading text-4xl font-bold text-gray-900 mb-2" data-i18n="report_lost_title">Report a Lost Item</h1>
+                    <p class="text-gray-500" data-i18n="report_lost_subtitle">Provide details to help the community find your lost item.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+                    <form id="lost-form" onsubmit="submitLostReport(event)">
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_title">Item Title *</label>
+                                <input type="text" id="lost-title" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition" data-i18n-placeholder="form_title_placeholder" placeholder="e.g., Brown leather wallet">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_description">Description</label>
+                                <textarea id="lost-description" rows="3" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition" data-i18n-placeholder="form_desc_placeholder" placeholder="Brand, color, distinguishing features..."></textarea>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_location">Location</label>
+                                    <input type="text" id="lost-location" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition" data-i18n-placeholder="form_location_placeholder" placeholder="e.g., Central Park, New York">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_date">Date Lost</label>
+                                    <input type="date" id="lost-date" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_category">Category</label>
+                                <select id="lost-category" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition bg-white">
+                                    <option value="Electronics" data-i18n="cat_electronics">Electronics</option>
+                                    <option value="Pets" data-i18n="cat_pets">Pets</option>
+                                    <option value="Documents" data-i18n="cat_documents">Documents</option>
+                                    <option value="Clothing" data-i18n="cat_clothing">Clothing</option>
+                                    <option value="Other" data-i18n="cat_other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_image_url">Image URL (optional)</label>
+                                <input type="url" id="lost-image" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition" data-i18n-placeholder="form_image_placeholder" placeholder="https://example.com/photo.jpg">
+                            </div>
+                            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white py-3.5 rounded-xl font-semibold text-lg transition flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                                <span data-i18n="form_submit_lost">Report Lost Item</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== REPORT FOUND PAGE ==================== -->
+    <div id="page-report-found" class="page">
+        <div class="pt-24 pb-16 min-h-screen bg-gray-50">
+            <div class="max-w-2xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="check-circle" class="w-8 h-8 text-green-600"></i>
+                    </div>
+                    <h1 class="font-heading text-4xl font-bold text-gray-900 mb-2" data-i18n="report_found_title">Report a Found Item</h1>
+                    <p class="text-gray-500" data-i18n="report_found_subtitle">Provide details to help return the item to its owner.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+                    <form id="found-form" onsubmit="submitFoundReport(event)">
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_title">Item Title *</label>
+                                <input type="text" id="found-title" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition" data-i18n-placeholder="form_title_placeholder" placeholder="e.g., Black umbrella">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_description">Description</label>
+                                <textarea id="found-description" rows="3" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition" data-i18n-placeholder="form_desc_placeholder" placeholder="Color, brand, any marks..."></textarea>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_location">Location</label>
+                                    <input type="text" id="found-location" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition" data-i18n-placeholder="form_location_placeholder" placeholder="e.g., Metro Station">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_date">Date Found</label>
+                                    <input type="date" id="found-date" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_category">Category</label>
+                                <select id="found-category" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition bg-white">
+                                    <option value="Electronics" data-i18n="cat_electronics">Electronics</option>
+                                    <option value="Pets" data-i18n="cat_pets">Pets</option>
+                                    <option value="Documents" data-i18n="cat_documents">Documents</option>
+                                    <option value="Clothing" data-i18n="cat_clothing">Clothing</option>
+                                    <option value="Other" data-i18n="cat_other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_image_url">Image URL (optional)</label>
+                                <input type="url" id="found-image" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-brand-600 focus:ring-1 focus:ring-brand-600 transition" data-i18n-placeholder="form_image_placeholder" placeholder="https://example.com/photo.jpg">
+                            </div>
+                            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3.5 rounded-xl font-semibold text-lg transition flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                                <span data-i18n="form_submit_found">Report Found Item</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PRICING PAGE ==================== -->
+    <div id="page-pricing" class="page">
+        <div class="pt-24 pb-20 bg-white min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-brand-100 text-brand-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4" data-i18n="pricing_badge">PRICING</span>
+                    <h1 class="font-heading text-4xl sm:text-5xl font-bold text-gray-900 mb-4" data-i18n="pricing_title">Choose your plan</h1>
+                    <p class="text-xl text-gray-500 max-w-2xl mx-auto" data-i18n="pricing_subtitle">Start for free, upgrade as you grow.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col">
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-2" data-i18n="plan_free_name">Free</h3>
+                        <p class="text-gray-500 mb-6" data-i18n="plan_free_desc">For individuals testing the waters.</p>
+                        <div class="mb-6">
+                            <span class="text-5xl font-bold text-gray-900">$0</span><span class="text-gray-500">/mo</span>
+                        </div>
+                        <ul class="space-y-3 flex-1 mb-8">
+                            <li class="flex items-center gap-3 text-gray-600"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_free_feature1">1 item listing per month</span></li>
+                            <li class="flex items-center gap-3 text-gray-600"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_free_feature2">Basic matching</span></li>
+                            <li class="flex items-center gap-3 text-gray-600"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_free_feature3">Community support</span></li>
+                        </ul>
+                        <button class="w-full py-3 border-2 border-brand-600 text-brand-600 rounded-xl font-semibold hover:bg-brand-50 transition" data-i18n="plan_select">Get Started</button>
+                    </div>
+                    
+                    <div class="bg-white border border-brand-600 rounded-2xl p-8 flex flex-col pricing-popular bg-gradient-to-b from-white to-brand-50/20">
+                        <h3 class="font-heading font-bold text-xl text-brand-700 mb-2" data-i18n="plan_pro_name">Pro</h3>
+                        <p class="text-gray-500 mb-6" data-i18n="plan_pro_desc">For active finders and seekers.</p>
+                        <div class="mb-6">
+                            <span class="text-5xl font-bold text-gray-900">$9.99</span><span class="text-gray-500">/mo</span>
+                        </div>
+                        <ul class="space-y-3 flex-1 mb-8">
+                            <li class="flex items-center gap-3 text-gray-600"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature1">Up to 5 item listings per month</span></li>
+                            <li class="flex items-center gap-3 text-gray-600"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature2">Priority matching</span></li>
+                            <li class="flex items-center gap-3 text-gray-600"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature3">Enhanced photos</span></li>
+                            <li class="flex items-center gap-3 text-gray-600"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature4">Email notifications</span></li>
+                        </ul>
+                        <button class="w-full py-3 bg-brand-600 text-white rounded-xl font-semibold hover:bg-brand-700 transition" data-i18n="plan_select">Choose Pro</button>
+                    </div>
+                    
+                    <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col">
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-2" data-i18n="plan_enterprise_name">Enterprise</h3>
+                        <p class="text-gray-500 mb-6" data-i18n="plan_enterprise_desc">For organizations and high volume.</p>
+                        <div class="mb-6">
+                            <span class="text-5xl font-bold text-gray-900">$49.99</span><span class="text-gray-500">/mo</span>
+                        </div>
+                        <ul class="space-y-3 flex-1 mb-8">
+                            <li class="flex items-center gap-3 text-gray-600"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature1">Unlimited listings</span></li>
+                            <li class="flex items-center gap-3 text-gray-600"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature2">API access</span></li>
+                            <li class="flex items-center gap-3 text-gray-600"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature3">Dedicated support</span></li>
+                            <li class="flex items-center gap-3 text-gray-600"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature4">Custom branding</span></li>
+                        </ul>
+                        <button class="w-full py-3 border-2 border-brand-600 text-brand-600 rounded-xl font-semibold hover:bg-brand-50 transition" data-i18n="plan_select">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item Detail Modal -->
+    <div id="item-modal" class="fixed inset-0 z-[200] bg-black/60 backdrop-blur-sm hidden items-center justify-center" onclick="closeItemModal()">
+        <div class="bg-white rounded-2xl max-w-lg w-full mx-4 overflow-hidden shadow-2xl slide-up" onclick="event.stopPropagation()">
+            <div class="relative">
+                <img id="modal-image" src="" alt="Item" class="w-full h-64 object-cover">
+                <button onclick="closeItemModal()" class="absolute top-4 right-4 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition">
+                    <i data-lucide="x" class="w-5 h-5 text-gray-700"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="flex items-center gap-2 mb-3">
+                    <span id="modal-status" class="px-3 py-1 text-xs font-semibold rounded-full"></span>
+                </div>
+                <h3 id="modal-title" class="font-heading font-bold text-2xl text-gray-900 mb-2"></h3>
+                <p id="modal-description" class="text-gray-600 mb-4"></p>
+                <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+                    <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> <span id="modal-location"></span></span>
+                    <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> <span id="modal-date"></span></span>
+                </div>
+                <button onclick="contactItem()" class="w-full bg-brand-700 hover:bg-brand-800 text-white py-3 rounded-xl font-semibold transition" data-i18n="modal_contact">Contact Owner / Finder</button>
+            </div>
+        </div>
+    </div>
+    
+
+<script>
+    // === Core App Logic ===
+
+    // Global items database
+    const allItems = [
+        { id: 1, type: 'lost', title: 'Golden Retriever', description: 'Lost near Central Park', location: 'Moscow, RU', date: '2025-01-15', status: 'reunited', image: 'http://static.photos/nature/320x240/42' },
+        { id: 2, type: 'found', title: 'MacBook Pro 16"', description: 'Found at airport lounge', location: 'Berlin, DE', date: '2025-02-20', status: 'reunited', image: 'http://static.photos/technology/320x240/15' },
+        { id: 3, type: 'lost', title: 'Wedding Ring', description: 'Platinum band with engraving', location: 'Tokyo, JP', date: '2025-02-14', status: 'reunited', image: 'http://static.photos/people/320x240/88' },
+        { id: 4, type: 'found', title: 'Passport', description: 'US passport found in taxi', location: 'London, UK', date: '2025-03-01', status: 'reunited', image: 'http://static.photos/office/320x240/12' },
+        { id: 5, type: 'lost', title: 'Sony Camera', description: 'Lost at beach resort', location: 'Bali, ID', date: '2025-03-05', status: 'lost', image: 'http://static.photos/technology/320x240/33' },
+        { id: 6, type: 'found', title: 'Backpack', description: 'Left in metro train', location: 'Paris, FR', date: '2025-03-08', status: 'found', image: 'http://static.photos/office/320x240/21' },
+        { id: 7, type: 'lost', title: 'Headphones', description: 'Sony WH-1000XM5 lost at gym', location: 'New York, US', date: '2025-03-10', status: 'lost', image: 'http://static.photos/technology/320x240/44' },
+        { id: 8, type: 'found', title: 'Necklace', description: 'Gold necklace found in park', location: 'Sydney, AU', date: '2025-03-11', status: 'found', image: 'http://static.photos/people/320x240/55' }
+    ];
+
+    // Page navigation
+    function navigateTo(page) {
+        // Hide all pages
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        // Show target page
+        const target = document.getElementById('page-' + page);
+        if (target) target.classList.add('active');
+        else console.warn('Page not found: ' + page);
+        
+        // Special handling for catalog
+        if (page === 'catalog') {
+            setTimeout(renderCatalog, 0);
+        }
+        
+        // Update active nav
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.dataset.nav === page) link.classList.add('active');
+        });
+        // Update hash
+        window.location.hash = page;
+        // Close mobile menu
+        document.getElementById('mobile-menu').classList.add('hidden');
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Re-initialize Lucide icons for new content
+        lucide.createIcons();
+    }
+
+    // Handle initial load based on hash
+    window.addEventListener('hashchange', () => {
+        const page = window.location.hash.replace('#', '') || 'home';
+        navigateTo(page);
+    });
+    // On load
+    document.addEventListener('DOMContentLoaded', () => {
+        const page = window.location.hash.replace('#', '') || 'home';
+        navigateTo(page);
+    });
+
+    // Search overlay
+    function openSearch() {
+        document.getElementById('search-overlay').classList.remove('hidden');
+        document.getElementById('search-input').focus();
+    }
+    function closeSearch() {
+        document.getElementById('search-overlay').classList.add('hidden');
+        document.getElementById('search-input').value = '';
+        document.getElementById('search-results').innerHTML = `
+            <div class="p-6 text-center text-gray-400">
+                <i data-lucide="search" class="w-10 h-10 mx-auto mb-3 opacity-30"></i>
+                <p class="text-sm" data-i18n="search_hint">Start typing to search items worldwide</p>
+            </div>`;
+        lucide.createIcons();
+    }
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeSearch();
+    });
+
+    // Search handler
+    function handleSearch(query) {
+        const resultsContainer = document.getElementById('search-results');
+        if (!query.trim()) {
+            resultsContainer.innerHTML = `
+                <div class="p-6 text-center text-gray-400">
+                    <i data-lucide="search" class="w-10 h-10 mx-auto mb-3 opacity-30"></i>
+                    <p class="text-sm" data-i18n="search_hint">Start typing to search items worldwide</p>
+                </div>`;
+            lucide.createIcons();
+            return;
+        }
+        const q = query.toLowerCase();
+        const filtered = allItems.filter(item => 
+            item.title.toLowerCase().includes(q) || 
+            item.description.toLowerCase().includes(q) || 
+            item.location.toLowerCase().includes(q)
+        );
+        if (filtered.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="p-6 text-center text-gray-500">
+                    <i data-lucide="search-x" class="w-10 h-10 mx-auto mb-3 opacity-30"></i>
+                    <p class="text-sm">No results found for "${query}"</p>
+                </div>`;
+        } else {
+            resultsContainer.innerHTML = filtered.map(item => `
+                <div class="flex items-center gap-4 p-4 hover:bg-gray-50 border-b border-gray-100 cursor-pointer transition" onclick="viewItemDetail(${item.id})">
+                    <img src="${item.image}" alt="${item.title}" class="w-14 h-14 rounded-lg object-cover">
+                    <div class="flex-1">
+                        <div class="font-semibold text-gray-900">${escapeHtml(item.title)}</div>
+                        <div class="text-sm text-gray-500">${escapeHtml(item.location)} · ${item.date}</div>
+                    </div>
+                    <span class="px-2 py-1 text-xs font-semibold rounded-full ${item.status === 'lost' ? 'bg-red-100 text-red-700' : item.status === 'found' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}">${item.status.toUpperCase()}</span>
+                </div>
+            `).join('');
+        }
+        lucide.createIcons();
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHtml(text) {
+        const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+        return String(text).replace(/[&<>"']/g, m => map[m]);
+    }
+
+    // Placeholder for item detail
+    function viewItemDetail(id) {
+        navigateTo('catalog');
+    }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    }
+
+    // Toast system
+    function showToast(message, type = 'info') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        const bgColor = type === 'success' ? 'bg-green-50 border-green-200 text-green-800' : 'bg-blue-50 border-blue-200 text-blue-800';
+        toast.className = `toast flex items-center gap-3 px-5 py-4 rounded-xl border shadow-lg ${bgColor}`;
+        toast.innerHTML = `
+            <i data-lucide="${type === 'success' ? 'check-circle' : 'info'}" class="w-5 h-5"></i>
+            <span>${message}</span>
+        `;
+        container.appendChild(toast);
+        lucide.createIcons();
+        setTimeout(() => {
+            toast.classList.add('toast-out');
+            toast.addEventListener('animationend', () => toast.remove());
+        }, 3000);
+    }
+
+    // Expose to global scope
+    window.navigateTo = navigateTo;
+    window.openSearch = openSearch;
+    window.closeSearch = closeSearch;
+    window.handleSearch = handleSearch;
+    window.toggleMobileMenu = toggleMobileMenu;
+    window.showToast = showToast;
+
+    // ---- Catalog Rendering ----
+    let currentFilter = { search: '', status: 'all' };
+
+    function filterCatalog() {
+        const search = document.getElementById('catalog-search')?.value.toLowerCase() || '';
+        const status = document.getElementById('catalog-status')?.value || 'all';
+        currentFilter = { search, status };
+        renderCatalog();
+    }
+
+    function renderCatalog() {
+        let items = allItems.slice();
+        const { search, status } = currentFilter;
+        if (status !== 'all') {
+            items = items.filter(i => i.status === status);
+        }
+        if (search) {
+            items = items.filter(i => 
+                i.title.toLowerCase().includes(search) || 
+                i.location.toLowerCase().includes(search)
+            );
+        }
+        const grid = document.getElementById('catalog-grid');
+        const emptyEl = document.getElementById('catalog-empty');
+        if (!grid) return;
+        
+        if (items.length === 0) {
+            grid.innerHTML = '';
+            emptyEl.classList.remove('hidden');
+        } else {
+            emptyEl.classList.add('hidden');
+            grid.innerHTML = items.map(item => `
+                <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition card-hover cursor-pointer" onclick="openItemModal(${item.id})">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="${item.image || 'http://static.photos/technology/320x240/42'}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 px-2 py-1 text-xs font-semibold rounded-full ${item.status === 'lost' ? 'bg-red-100 text-red-700' : item.status === 'found' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}">${item.status.toUpperCase()}</span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-heading font-bold text-lg text-gray-900 mb-1">${escapeHtml(item.title)}</h3>
+                        <p class="text-sm text-gray-500 flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> ${escapeHtml(item.location)}</p>
+                        <p class="text-sm text-gray-400 mt-1">${item.date}</p>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+    }
+
+    // ---- Item Modal ----
+    function openItemModal(id) {
+        const item = allItems.find(i => i.id === id);
+        if (!item) return;
+        document.getElementById('modal-image').src = item.image || 'http://static.photos/abstract/640x360/99';
+        document.getElementById('modal-title').textContent = item.title;
+        document.getElementById('modal-description').textContent = item.description;
+        document.getElementById('modal-location').textContent = item.location;
+        document.getElementById('modal-date').textContent = item.date;
+        const statusEl = document.getElementById('modal-status');
+        statusEl.textContent = item.status.toUpperCase();
+        statusEl.className = 'px-3 py-1 text-xs font-semibold rounded-full ' + 
+            (item.status === 'lost' ? 'bg-red-100 text-red-700' : 
+             item.status === 'found' ? 'bg-green-100 text-green-700' : 
+             'bg-blue-100 text-blue-700');
+        document.getElementById('item-modal').dataset.itemId = id;
+        document.getElementById('item-modal').classList.remove('hidden');
+        document.getElementById('item-modal').classList.add('flex');
+    }
+
+    function closeItemModal() {
+        document.getElementById('item-modal').classList.add('hidden');
+        document.getElementById('item-modal').classList.remove('flex');
+    }
+
+    function contactItem() {
+        const id = document.getElementById('item-modal').dataset.itemId;
+        const item = allItems.find(i => i.id === parseInt(id));
+        if (item) {
+            showToast(`Message sent to the ${item.type === 'lost' ? 'owner' : 'finder'}!`, 'success');
+        }
+        closeItemModal();
+    }
+
+    // ---- Lost Report Submission ----
+    function submitLostReport(e) {
+        e.preventDefault();
+        const title = document.getElementById('lost-title').value.trim();
+        if (!title) {
+            showToast('Please enter a title.', 'error');
+            return;
+        }
+        const newItem = {
+            id: allItems.length ? allItems[allItems.length-1].id + 1 : 1,
+            type: 'lost',
+            title: title,
+            description: document.getElementById('lost-description').value.trim(),
+            location: document.getElementById('lost-location').value.trim() || 'Unknown',
+            date: document.getElementById('lost-date').value || new Date().toISOString().split('T')[0],
+            status: 'lost',
+            image: document.getElementById('lost-image').value.trim() || 'http://static.photos/abstract/320x240/66',
+            category: document.getElementById('lost-category').value
+        };
+        allItems.push(newItem);
+        showToast('Lost item reported successfully!', 'success');
+        document.getElementById('lost-form').reset();
+        if (document.getElementById('page-catalog').classList.contains('active')) {
+            renderCatalog();
+        }
+    }
+
+    // ---- Found Report Submission ----
+    function submitFoundReport(e) {
+        e.preventDefault();
+        const title = document.getElementById('found-title').value.trim();
+        if (!title) {
+            showToast('Please enter a title.', 'error');
+            return;
+        }
+        const newItem = {
+            id: allItems.length ? allItems[allItems.length-1].id + 1 : 1,
+            type: 'found',
+            title: title,
+            description: document.getElementById('found-description').value.trim(),
+            location: document.getElementById('found-location').value.trim() || 'Unknown',
+            date: document.getElementById('found-date').value || new Date().toISOString().split('T')[0],
+            status: 'found',
+            image: document.getElementById('found-image').value.trim() || 'http://static.photos/technology/320x240/55',
+            category: document.getElementById('found-category').value
+        };
+        allItems.push(newItem);
+        showToast('Found item reported successfully!', 'success');
+        document.getElementById('found-form').reset();
+        if (document.getElementById('page-catalog').classList.contains('active')) {
+            renderCatalog();
+        }
+    }
+
+    // Expose new functions to window
+    window.filterCatalog = filterCatalog;
+    window.renderCatalog = renderCatalog;
+    window.openItemModal = openItemModal;
+    window.closeItemModal = closeItemModal;
+    window.contactItem = contactItem;
+    window.submitLostReport = submitLostReport;
+    window.submitFoundReport = submitFoundReport;
+
+    // Apply language after scripts are ready
+    if (typeof applyLanguage === 'function') {
+        applyLanguage();
+    }
+</script>
