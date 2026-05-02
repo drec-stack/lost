@@ -189,7 +189,7 @@
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200/60 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <a href="#" onclick="navigateTo('home')" class="flex items-center gap-2">
+                <a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-2">
                     <div class="w-9 h-9 bg-brand-700 rounded-xl flex items-center justify-center">
                         <i data-lucide="radar" class="w-5 h-5 text-white"></i>
                     </div>
@@ -197,11 +197,11 @@
                 </a>
                 
                 <div class="hidden md:flex items-center gap-1">
-                    <a href="#" onclick="navigateTo('home')" class="nav-link active px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="home" data-i18n="nav_home">Home</a>
-                    <a href="#" onclick="navigateTo('catalog')" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="catalog" data-i18n="nav_catalog">Catalog</a>
-                    <a href="#" onclick="navigateTo('report-lost')" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="report-lost" data-i18n="nav_report_lost">Report Lost</a>
-                    <a href="#" onclick="navigateTo('report-found')" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="report-found" data-i18n="nav_report_found">Report Found</a>
-                    <a href="#" onclick="navigateTo('pricing')" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="pricing" data-i18n="nav_pricing">Pricing</a>
+                    <a href="#" onclick="navigateTo('home'); return false;" class="nav-link active px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="home" data-i18n="nav_home">Home</a>
+                    <a href="#" onclick="navigateTo('catalog'); return false;" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="catalog" data-i18n="nav_catalog">Catalog</a>
+                    <a href="#" onclick="navigateTo('report-lost'); return false;" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="report-lost" data-i18n="nav_report_lost">Report Lost</a>
+                    <a href="#" onclick="navigateTo('report-found'); return false;" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="report-found" data-i18n="nav_report_found">Report Found</a>
+                    <a href="#" onclick="navigateTo('pricing'); return false;" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="pricing" data-i18n="nav_pricing">Pricing</a>
                 </div>
                 
                 <div class="flex items-center gap-3">
@@ -212,7 +212,7 @@
                         <i data-lucide="globe" class="w-4 h-4 text-gray-500"></i>
                         <span id="lang-label">RU</span>
                     </button>
-                    <button onclick="navigateTo('report-lost')" class="hidden sm:inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition min-w-[130px]">
+                    <button onclick="navigateTo('report-lost'); return false;" class="hidden sm:inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition min-w-[130px]">
                         <i data-lucide="plus" class="w-4 h-4"></i>
                         <span data-i18n="nav_report_item">Report Item</span>
                     </button>
@@ -226,11 +226,11 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
             <div class="px-4 py-3 space-y-1">
-                <a href="#" onclick="navigateTo('home');toggleMobileMenu()" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_home">Home</a>
-                <a href="#" onclick="navigateTo('catalog');toggleMobileMenu()" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_catalog">Catalog</a>
-                <a href="#" onclick="navigateTo('report-lost');toggleMobileMenu()" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_report_lost">Report Lost</a>
-                <a href="#" onclick="navigateTo('report-found');toggleMobileMenu()" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_report_found">Report Found</a>
-                <a href="#" onclick="navigateTo('pricing');toggleMobileMenu()" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_pricing">Pricing</a>
+                <a href="#" onclick="navigateTo('home');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_home">Home</a>
+                <a href="#" onclick="navigateTo('catalog');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_catalog">Catalog</a>
+                <a href="#" onclick="navigateTo('report-lost');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_report_lost">Report Lost</a>
+                <a href="#" onclick="navigateTo('report-found');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_report_found">Report Found</a>
+                <a href="#" onclick="navigateTo('pricing');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_pricing">Pricing</a>
             </div>
         </div>
     </nav>
@@ -445,8 +445,8 @@
                         <div class="flex items-center gap-3">
                             <img src="http://static.photos/people/48x48/1" class="w-10 h-10 rounded-full" alt="User">
                             <div>
-                                <div class="font-semibold text-gray-900">Alex K.</div>
-                                <div class="text-sm text-gray-400">Berlin, Germany</div>
+                                <div class="font-semibold text-gray-900" data-i18n="testimonial_1_name">Alex K.</div>
+                                <div class="text-sm text-gray-400" data-i18n="testimonial_1_loc">Berlin, Germany</div>
                             </div>
                         </div>
                     </div>
@@ -462,8 +462,8 @@
                         <div class="flex items-center gap-3">
                             <img src="http://static.photos/people/48x48/2" class="w-10 h-10 rounded-full" alt="User">
                             <div>
-                                <div class="font-semibold text-gray-900">Maria S.</div>
-                                <div class="text-sm text-gray-400">Paris, France</div>
+                                <div class="font-semibold text-gray-900" data-i18n="testimonial_2_name">Maria S.</div>
+                                <div class="text-sm text-gray-400" data-i18n="testimonial_2_loc">Paris, France</div>
                             </div>
                         </div>
                     </div>
@@ -479,8 +479,8 @@
                         <div class="flex items-center gap-3">
                             <img src="http://static.photos/people/48x48/3" class="w-10 h-10 rounded-full" alt="User">
                             <div>
-                                <div class="font-semibold text-gray-900">John D.</div>
-                                <div class="text-sm text-gray-400">New York, USA</div>
+                                <div class="font-semibold text-gray-900" data-i18n="testimonial_3_name">John D.</div>
+                                <div class="text-sm text-gray-400" data-i18n="testimonial_3_loc">New York, USA</div>
                             </div>
                         </div>
                     </div>
@@ -751,18 +751,22 @@
         { id: 8, type: 'found', title: 'Necklace', description: 'Gold necklace found in park', location: 'Sydney, AU', date: '2025-03-11', status: 'found', image: 'http://static.photos/people/320x240/55' }
     ];
 
-    // Page navigation
+    let isNavigating = false;
+
+    // Page navigation - FIXED
     function navigateTo(page) {
+        if (isNavigating) return;
+        isNavigating = true;
+        
         // Hide all pages
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         // Show target page
         const target = document.getElementById('page-' + page);
         if (target) target.classList.add('active');
-        else console.warn('Page not found: ' + page);
         
         // Special handling for catalog
         if (page === 'catalog') {
-            setTimeout(renderCatalog, 0);
+            setTimeout(renderCatalog, 50);
         }
         
         // Update active nav
@@ -770,24 +774,48 @@
             link.classList.remove('active');
             if (link.dataset.nav === page) link.classList.add('active');
         });
-        // Update hash
-        window.location.hash = page;
+        
+        // Update hash without triggering hashchange event
+        if (window.location.hash !== '#' + page) {
+            window.location.hash = page;
+        }
+        
         // Close mobile menu
-        document.getElementById('mobile-menu').classList.add('hidden');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) mobileMenu.classList.add('hidden');
+        
         // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
         // Re-initialize Lucide icons for new content
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+        
+        setTimeout(() => { isNavigating = false; }, 100);
     }
 
-    // Handle initial load based on hash
-    window.addEventListener('hashchange', () => {
-        const page = window.location.hash.replace('#', '') || 'home';
-        navigateTo(page);
+    // Handle hash changes - FIXED
+    let isHandlingHash = false;
+    window.addEventListener('hashchange', (e) => {
+        if (isHandlingHash || isNavigating) return;
+        isHandlingHash = true;
+        let page = window.location.hash.replace('#', '');
+        if (!page || page === '') page = 'home';
+        
+        // Only navigate if not already on this page
+        const currentActive = document.querySelector('.page.active');
+        const targetId = 'page-' + page;
+        if (!currentActive || currentActive.id !== targetId) {
+            navigateTo(page);
+        }
+        isHandlingHash = false;
     });
-    // On load
+    
+    // On load - FIXED
+    let isInitialLoad = false;
     document.addEventListener('DOMContentLoaded', () => {
-        const page = window.location.hash.replace('#', '') || 'home';
+        if (isInitialLoad) return;
+        isInitialLoad = true;
+        let page = window.location.hash.replace('#', '');
+        if (!page || page === '') page = 'home';
         navigateTo(page);
     });
 
@@ -804,8 +832,9 @@
                 <i data-lucide="search" class="w-10 h-10 mx-auto mb-3 opacity-30"></i>
                 <p class="text-sm" data-i18n="search_hint">Start typing to search items worldwide</p>
             </div>`;
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
     }
+    
     // Close on ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeSearch();
@@ -820,7 +849,7 @@
                     <i data-lucide="search" class="w-10 h-10 mx-auto mb-3 opacity-30"></i>
                     <p class="text-sm" data-i18n="search_hint">Start typing to search items worldwide</p>
                 </div>`;
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
             return;
         }
         const q = query.toLowerCase();
@@ -833,12 +862,12 @@
             resultsContainer.innerHTML = `
                 <div class="p-6 text-center text-gray-500">
                     <i data-lucide="search-x" class="w-10 h-10 mx-auto mb-3 opacity-30"></i>
-                    <p class="text-sm">No results found for "${query}"</p>
+                    <p class="text-sm">No results found for "${escapeHtml(query)}"</p>
                 </div>`;
         } else {
             resultsContainer.innerHTML = filtered.map(item => `
                 <div class="flex items-center gap-4 p-4 hover:bg-gray-50 border-b border-gray-100 cursor-pointer transition" onclick="viewItemDetail(${item.id})">
-                    <img src="${item.image}" alt="${item.title}" class="w-14 h-14 rounded-lg object-cover">
+                    <img src="${item.image}" alt="${escapeHtml(item.title)}" class="w-14 h-14 rounded-lg object-cover">
                     <div class="flex-1">
                         <div class="font-semibold text-gray-900">${escapeHtml(item.title)}</div>
                         <div class="text-sm text-gray-500">${escapeHtml(item.location)} · ${item.date}</div>
@@ -847,7 +876,7 @@
                 </div>
             `).join('');
         }
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
     // Escape HTML to prevent XSS
@@ -856,9 +885,8 @@
         return String(text).replace(/[&<>"']/g, m => map[m]);
     }
 
-    // Placeholder for item detail
     function viewItemDetail(id) {
-        navigateTo('catalog');
+        openItemModal(id);
     }
 
     // Mobile menu toggle
@@ -878,7 +906,7 @@
             <span>${message}</span>
         `;
         container.appendChild(toast);
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
         setTimeout(() => {
             toast.classList.add('toast-out');
             toast.addEventListener('animationend', () => toast.remove());
@@ -921,9 +949,9 @@
         
         if (items.length === 0) {
             grid.innerHTML = '';
-            emptyEl.classList.remove('hidden');
+            if (emptyEl) emptyEl.classList.remove('hidden');
         } else {
-            emptyEl.classList.add('hidden');
+            if (emptyEl) emptyEl.classList.add('hidden');
             grid.innerHTML = items.map(item => `
                 <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition card-hover cursor-pointer" onclick="openItemModal(${item.id})">
                     <div class="relative h-48 overflow-hidden">
@@ -937,7 +965,7 @@
                     </div>
                 </div>
             `).join('');
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
     }
 
@@ -945,6 +973,7 @@
     function openItemModal(id) {
         const item = allItems.find(i => i.id === id);
         if (!item) return;
+        const modal = document.getElementById('item-modal');
         document.getElementById('modal-image').src = item.image || 'http://static.photos/abstract/640x360/99';
         document.getElementById('modal-title').textContent = item.title;
         document.getElementById('modal-description').textContent = item.description;
@@ -956,18 +985,25 @@
             (item.status === 'lost' ? 'bg-red-100 text-red-700' : 
              item.status === 'found' ? 'bg-green-100 text-green-700' : 
              'bg-blue-100 text-blue-700');
-        document.getElementById('item-modal').dataset.itemId = id;
-        document.getElementById('item-modal').classList.remove('hidden');
-        document.getElementById('item-modal').classList.add('flex');
+        if (modal) {
+            modal.dataset.itemId = id;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
     function closeItemModal() {
-        document.getElementById('item-modal').classList.add('hidden');
-        document.getElementById('item-modal').classList.remove('flex');
+        const modal = document.getElementById('item-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
     }
 
     function contactItem() {
-        const id = document.getElementById('item-modal').dataset.itemId;
+        const modal = document.getElementById('item-modal');
+        const id = modal ? modal.dataset.itemId : null;
         const item = allItems.find(i => i.id === parseInt(id));
         if (item) {
             showToast(`Message sent to the ${item.type === 'lost' ? 'owner' : 'finder'}!`, 'success');
@@ -992,12 +1028,12 @@
             date: document.getElementById('lost-date').value || new Date().toISOString().split('T')[0],
             status: 'lost',
             image: document.getElementById('lost-image').value.trim() || 'http://static.photos/abstract/320x240/66',
-            category: document.getElementById('lost-category').value
-        };
+            category: document.getElementById('lost-category').value        };
         allItems.push(newItem);
         showToast('Lost item reported successfully!', 'success');
         document.getElementById('lost-form').reset();
-        if (document.getElementById('page-catalog').classList.contains('active')) {
+        const catalogPage = document.getElementById('page-catalog');
+        if (catalogPage && catalogPage.classList.contains('active')) {
             renderCatalog();
         }
     }
@@ -1024,7 +1060,8 @@
         allItems.push(newItem);
         showToast('Found item reported successfully!', 'success');
         document.getElementById('found-form').reset();
-        if (document.getElementById('page-catalog').classList.contains('active')) {
+        const catalogPage = document.getElementById('page-catalog');
+        if (catalogPage && catalogPage.classList.contains('active')) {
             renderCatalog();
         }
     }
@@ -1039,7 +1076,11 @@
     window.submitFoundReport = submitFoundReport;
 
     // Apply language after scripts are ready
-    if (typeof applyLanguage === 'function') {
-        applyLanguage();
-    }
+    setTimeout(() => {
+        if (typeof applyLanguage === 'function') {
+            applyLanguage();
+        }
+    }, 100);
 </script>
+</body>
+</html>
