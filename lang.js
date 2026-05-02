@@ -43,6 +43,89 @@ const translations = {
         // Search
         search_placeholder: 'Search lost & found items...',
         search_hint: 'Start typing to search items worldwide',
+
+        // Recent Activity
+        recent_badge: 'RECENTLY REUNITED',
+        recent_title: 'Happy reunions, happening daily',
+        recent_subtitle: 'Real stories of items that found their way back to their owners through Reunite.',
+        item_status_reunited: 'Reunited',
+
+        // Testimonials
+        testimonials_badge: 'TESTIMONIALS',
+        testimonials_title: 'Loved by thousands',
+        testimonial_1_text: 'I couldn\'t believe it when someone found my lost drone! Reunite\'s community is amazing.',
+        testimonial_2_text: 'We found a lost cat and within hours the owner contacted us. This site is magical!',
+        testimonial_3_text: 'My wallet was returned with all my cards and cash. I\'m forever grateful to Reunite.',
+        testimonial_1_name: 'Alex K.',
+        testimonial_2_name: 'Maria S.',
+        testimonial_3_name: 'John D.',
+        testimonial_1_loc: 'Berlin, Germany',
+        testimonial_2_loc: 'Paris, France',
+        testimonial_3_loc: 'New York, USA',
+
+        // CTA
+        cta_title: 'Ready to find what\'s lost?',
+        cta_subtitle: 'Join millions who have reunited with their belongings. It\'s fast, free, and easy.',
+        cta_btn: 'Report Lost Item',
+
+        // Catalog
+        catalog_title: 'Lost & Found Catalog',
+        catalog_subtitle: 'Browse reported items worldwide. Use filters to find matches.',
+        catalog_search_placeholder: 'Search by title or location...',
+        catalog_filter_all: 'All Items',
+        catalog_filter_lost: 'Lost',
+        catalog_filter_found: 'Found',
+        catalog_filter_reunited: 'Reunited',
+        catalog_empty: 'No items match your filters.',
+
+        // Report Forms
+        report_lost_title: 'Report a Lost Item',
+        report_lost_subtitle: 'Provide details to help the community find your lost item.',
+        report_found_title: 'Report a Found Item',
+        report_found_subtitle: 'Provide details to help return the item to its owner.',
+        form_title: 'Item Title *',
+        form_title_placeholder: 'e.g., Brown leather wallet',
+        form_description: 'Description',
+        form_desc_placeholder: 'Brand, color, distinguishing features...',
+        form_location: 'Location',
+        form_location_placeholder: 'e.g., Central Park, New York',
+        form_date: 'Date',
+        form_category: 'Category',
+        form_image_url: 'Image URL (optional)',
+        form_image_placeholder: 'https://example.com/photo.jpg',
+        form_submit_lost: 'Report Lost Item',
+        form_submit_found: 'Report Found Item',
+        cat_electronics: 'Electronics',
+        cat_pets: 'Pets',
+        cat_documents: 'Documents',
+        cat_clothing: 'Clothing',
+        cat_other: 'Other',
+
+        // Modal
+        modal_contact: 'Contact Owner / Finder',
+
+        // Pricing
+        pricing_badge: 'PRICING',
+        pricing_title: 'Choose your plan',
+        pricing_subtitle: 'Start for free, upgrade as you grow.',
+        plan_free_name: 'Free',
+        plan_free_desc: 'For individuals testing the waters.',
+        plan_free_feature1: '1 item listing per month',
+        plan_free_feature2: 'Basic matching',
+        plan_free_feature3: 'Community support',
+        plan_pro_name: 'Pro',
+        plan_pro_desc: 'For active finders and seekers.',
+        plan_pro_feature1: 'Up to 5 item listings per month',
+        plan_pro_feature2: 'Priority matching',
+        plan_pro_feature3: 'Enhanced photos',
+        plan_pro_feature4: 'Email notifications',
+        plan_enterprise_name: 'Enterprise',
+        plan_enterprise_desc: 'For organizations and high volume.',
+        plan_enterprise_feature1: 'Unlimited listings',
+        plan_enterprise_feature2: 'API access',
+        plan_enterprise_feature3: 'Dedicated support',
+        plan_enterprise_feature4: 'Custom branding',
+        plan_select: 'Get Started',
     },
     ru: {
         // Nav
@@ -85,6 +168,89 @@ const translations = {
         // Search
         search_placeholder: 'Поиск потерянных и найденных вещей...',
         search_hint: 'Начните вводить для поиска вещей по всему миру',
+
+        // Recent Activity
+        recent_badge: 'НЕДАВНО ВОЗВРАЩЕНО',
+        recent_title: 'Счастливые возвращения каждый день',
+        recent_subtitle: 'Реальные истории вещей, которые нашли свой путь обратно к владельцам с помощью Reunite.',
+        item_status_reunited: 'Возвращено',
+
+        // Testimonials
+        testimonials_badge: 'ОТЗЫВЫ',
+        testimonials_title: 'Тысячи довольных пользователей',
+        testimonial_1_text: 'Я не мог поверить, когда кто-то нашёл мой потерянный дрон! Сообщество Reunite потрясающее.',
+        testimonial_2_text: 'Мы нашли пропавшего кота, и через несколько часов владелец связался с нами. Этот сайт — чудо!',
+        testimonial_3_text: 'Мой бумажник вернули со всеми картами и деньгами. Я навсегда благодарен Reunite.',
+        testimonial_1_name: 'Алексей К.',
+        testimonial_2_name: 'Мария С.',
+        testimonial_3_name: 'Джон Д.',
+        testimonial_1_loc: 'Берлин, Германия',
+        testimonial_2_loc: 'Париж, Франция',
+        testimonial_3_loc: 'Нью-Йорк, США',
+
+        // CTA
+        cta_title: 'Готовы найти потерянное?',
+        cta_subtitle: 'Присоединяйтесь к миллионам, кто уже вернул свои вещи. Быстро, бесплатно и просто.',
+        cta_btn: 'Сообщить о потере',
+
+        // Catalog
+        catalog_title: 'Каталог потерянных и найденных вещей',
+        catalog_subtitle: 'Просматривайте заявки со всего мира. Используйте фильтры для поиска совпадений.',
+        catalog_search_placeholder: 'Поиск по названию или городу...',
+        catalog_filter_all: 'Все вещи',
+        catalog_filter_lost: 'Потерянные',
+        catalog_filter_found: 'Найденные',
+        catalog_filter_reunited: 'Возвращённые',
+        catalog_empty: 'Нет вещей, соответствующих фильтрам.',
+
+        // Report Forms
+        report_lost_title: 'Сообщить о потере',
+        report_lost_subtitle: 'Опишите потерянную вещь, чтобы сообщество помогло её найти.',
+        report_found_title: 'Сообщить о находке',
+        report_found_subtitle: 'Опишите найденную вещь, чтобы вернуть её владельцу.',
+        form_title: 'Название *',
+        form_title_placeholder: 'Например: Коричневый кожаный кошелёк',
+        form_description: 'Описание',
+        form_desc_placeholder: 'Бренд, цвет, особые приметы...',
+        form_location: 'Местоположение',
+        form_location_placeholder: 'Например: Центральный парк, Нью-Йорк',
+        form_date: 'Дата',
+        form_category: 'Категория',
+        form_image_url: 'Ссылка на фото (необязательно)',
+        form_image_placeholder: 'https://example.com/photo.jpg',
+        form_submit_lost: 'Сообщить о потере',
+        form_submit_found: 'Сообщить о находке',
+        cat_electronics: 'Электроника',
+        cat_pets: 'Животные',
+        cat_documents: 'Документы',
+        cat_clothing: 'Одежда',
+        cat_other: 'Другое',
+
+        // Modal
+        modal_contact: 'Связаться с владельцем / нашедшим',
+
+        // Pricing
+        pricing_badge: 'ТАРИФЫ',
+        pricing_title: 'Выберите план',
+        pricing_subtitle: 'Начните бесплатно, расширяйтесь по мере роста.',
+        plan_free_name: 'Бесплатный',
+        plan_free_desc: 'Для тех, кто только пробует.',
+        plan_free_feature1: '1 объявление в месяц',
+        plan_free_feature2: 'Базовый поиск совпадений',
+        plan_free_feature3: 'Поддержка сообщества',
+        plan_pro_name: 'Про',
+        plan_pro_desc: 'Для активных искателей.',
+        plan_pro_feature1: 'До 5 объявлений в месяц',
+        plan_pro_feature2: 'Приоритетный поиск',
+        plan_pro_feature3: 'Улучшенные фото',
+        plan_pro_feature4: 'Email-уведомления',
+        plan_enterprise_name: 'Бизнес',
+        plan_enterprise_desc: 'Для организаций и больших объёмов.',
+        plan_enterprise_feature1: 'Неограниченные объявления',
+        plan_enterprise_feature2: 'Доступ к API',
+        plan_enterprise_feature3: 'Персональная поддержка',
+        plan_enterprise_feature4: 'Брендирование',
+        plan_select: 'Выбрать',
     }
 };
 
@@ -124,6 +290,9 @@ function applyLanguage() {
 
     // Store preference
     try { localStorage.setItem('reunite-lang', currentLang); } catch(e) {}
+
+    // Re-init icons in case of new rendered elements
+    if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
 // Load saved language preference on page load
