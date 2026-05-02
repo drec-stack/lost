@@ -1,5 +1,6 @@
 // ===== Language Switching System =====
 let currentLang = 'en';
+let isApplyingLanguage = false;
 
 const translations = {
     en: {
@@ -255,13 +256,20 @@ const translations = {
 };
 
 function toggleLanguage() {
+    if (isApplyingLanguage) return;
     currentLang = currentLang === 'en' ? 'ru' : 'en';
     applyLanguage();
 }
 
 function applyLanguage() {
+    if (isApplyingLanguage) return;
+    isApplyingLanguage = true;
+    
     const lang = translations[currentLang];
-    if (!lang) return;
+    if (!lang) {
+        isApplyingLanguage = false;
+        return;
+    }
 
     // Update text content for data-i18n elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -291,8 +299,10 @@ function applyLanguage() {
     // Store preference
     try { localStorage.setItem('reunite-lang', currentLang); } catch(e) {}
 
-    // Re-init icons in case of new rendered elements
+    // Re-init icons
     if (typeof lucide !== 'undefined') lucide.createIcons();
+    
+    setTimeout(() => { isApplyingLanguage = false; }, 100);
 }
 
 // Load saved language preference on page load
