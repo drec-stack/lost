@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reunite — Global Lost & Found Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="lang.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef7ff',
+                            100: '#d9edff',
+                            200: '#bce0ff',
+                            300: '#8ecdff',
+                            400: '#59b1ff',
+                            500: '#338dff',
+                            600: '#1a6df5',
+                            700: '#1457e1',
+                            800: '#1746b6',
+                            900: '#193e8f',
+                        },
+                        accent: '#f59e0b',
+                        success: '#10b981',
+                        danger: '#ef4444',
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Space Grotesk', sans-serif; }
+        
+        .page { display: none; }
+        .page.active { display: block; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #1457e1 100%);
+        }
+        
+        .glass {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+        }
+        
+        .pulse-dot {
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.5s ease-out forwards;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .category-chip.active {
+            background: #1457e1;
+            color: white;
+            border-color: #1457e1;
+        }
+        
+        .status-lost { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+        .status-found { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+        .status-reunited { background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
+        
+        .pricing-popular {
+            border: 2px solid #1457e1;
+            position: relative;
+        }
+        .pricing-popular::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1457e1;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #1457e1;
+            box-shadow: 0 0 0 3px rgba(20, 87, 225, 0.15);
+        }
+        
+        .toast {
+            animation: toastIn 0.4s ease-out forwards;
+        }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .toast-out {
+            animation: toastOut 0.3s ease-in forwards;
+        }
+        @keyframes toastOut {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(100%); }
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        .map-dot {
+            animation: mapPulse 2s infinite;
+        }
+        @keyframes mapPulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1457e1;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link.active {
+            color: #1457e1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed top-6 right-6 z-[200] flex flex-col gap-3"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" onclick="navigateTo('home')" class="flex items-center gap-2">
+                    <div class="w-9 h-9 bg-brand-700 rounded-xl flex items-center justify-center">
+                        <i data-lucide="radar" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="font-heading font-bold text-xl text-gray-900">Reunite</span>
+                </a>
+                
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="#" onclick="navigateTo('home')" class="nav-link active px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="home" data-i18n="nav_home">Home</a>
+                    <a href="#" onclick="navigateTo('catalog')" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="catalog" data-i18n="nav_catalog">Catalog</a>
+                    <a href="#" onclick="navigateTo('report-lost')" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="report-lost" data-i18n="nav_report_lost">Report Lost</a>
+                    <a href="#" onclick="navigateTo('report-found')" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="report-found" data-i18n="nav_report_found">Report Found</a>
+                    <a href="#" onclick="navigateTo('pricing')" class="nav-link px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-lg transition" data-nav="pricing" data-i18n="nav_pricing">Pricing</a>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                    <button onclick="openSearch()" class="p-2 hover:bg-gray-100 rounded-lg transition">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-600"></i>
+                    </button>
+                    <button onclick="toggleLanguage()" id="lang-toggle" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold hover:bg-gray-100 transition border border-gray-200">
+                        <i data-lucide="globe" class="w-4 h-4 text-gray-500"></i>
+                        <span id="lang-label">RU</span>
+                    </button>
+                    <button onclick="navigateTo('report-lost')" class="hidden sm:inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+                        <i data-lucide="plus" class="w-4 h-4"></i>
+                        <span data-i18n="nav_report_item">Report Item</span>
+                    </button>
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 hover:bg-gray-100 rounded-lg transition">
+                        <i data-lucide="menu" class="w-5 h-5 text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 py-3 space-y-1">
+                <a href="#" onclick="navigateTo('home');toggleMobileMenu()" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_home">Home</a>
+                <a href="#" onclick="navigateTo('catalog');toggleMobileMenu()" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_catalog">Catalog</a>
+                <a href="#" onclick="navigateTo('report-lost');toggleMobileMenu()" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_report_lost">Report Lost</a>
+                <a href="#" onclick="navigateTo('report-found');toggleMobileMenu()" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_report_found">Report Found</a>
+                <a href="#" onclick="navigateTo('pricing');toggleMobileMenu()" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg" data-i18n="nav_pricing">Pricing</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm hidden" onclick="closeSearch()">
+        <div class="max-w-2xl mx-auto mt-24 px-4" onclick="event.stopPropagation()">
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden slide-up">
+                <div class="flex items-center px-6 border-b border-gray-100">
+                    <i data-lucide="search" class="w-5 h-5 text-gray-400 mr-4"></i>
+                    <input id="search-input" type="text" data-i18n-placeholder="search_placeholder" placeholder="Search lost & found items..." class="w-full py-5 text-lg border-0 focus:ring-0 focus:outline-none" oninput="handleSearch(this.value)">
+                    <kbd class="hidden sm:inline-block px-2 py-1 bg-gray-100 text-gray-400 text-xs rounded font-mono">ESC</kbd>
+                </div>
+                <div id="search-results" class="max-h-96 overflow-y-auto">
+                    <div class="p-6 text-center text-gray-400">
+                        <i data-lucide="search" class="w-10 h-10 mx-auto mb-3 opacity-30"></i>
+                        <p class="text-sm" data-i18n="search_hint">Start typing to search items worldwide</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== HOME PAGE ==================== -->
+    <div id="page-home" class="page active">
+        <!-- Hero -->
+        <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
+            <div class="absolute inset-0">
+                <div class="absolute top-20 left-10 w-72 h-72 bg-brand-500/20 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-600/5 rounded-full blur-3xl"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="inline-flex items-center gap-2 glass text-white/90 px-4 py-2 rounded-full text-sm mb-8">
+                            <span class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></span>
+                            <span data-i18n="hero_badge">12,847 items reunited this month</span>
+                        </div>
+                        <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+                            <span data-i18n="hero_title_1">Lost it?</span><br>
+                            <span class="bg-gradient-to-r from-blue-300 to-cyan-300 bg-clip-text text-transparent" data-i18n="hero_title_2">We'll find it.</span>
+                        </h1>
+                        <p class="text-xl text-blue-100/80 mb-10 max-w-lg leading-relaxed" data-i18n="hero_subtitle">
+                            The world's largest lost & found network. Report, search, and reunite with your belongings — powered by a global community.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="navigateTo('report-lost')" class="inline-flex items-center gap-2 bg-white text-brand-800 px-8 py-4 rounded-xl text-lg font-bold hover:bg-blue-50 transition shadow-lg shadow-brand-900/30">
+                                <i data-lucide="alert-circle" class="w-5 h-5"></i>
+                                <span data-i18n="hero_btn_lost">I Lost Something</span>
+                            </button>
+                            <button onclick="navigateTo('report-found')" class="inline-flex items-center gap-2 glass text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/15 transition">
+                                <i data-lucide="check-circle" class="w-5 h-5"></i>
+                                <span data-i18n="hero_btn_found">I Found Something</span>
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center gap-8 mt-12 pt-8 border-t border-white/10">
+                            <div>
+                                <div class="text-3xl font-bold text-white">2.4M+</div>
+                                <div class="text-sm text-blue-200/60" data-i18n="hero_stat_items">Items Listed</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-white">180+</div>
+                                <div class="text-sm text-blue-200/60" data-i18n="hero_stat_countries">Countries</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-white">67%</div>
+                                <div class="text-sm text-blue-200/60" data-i18n="hero_stat_rate">Reunion Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hidden lg:block relative">
+                        <!-- World Map Visual -->
+                        <div class="relative float-animation">
+                            <div class="glass rounded-3xl p-8">
+                                <img src="http://static.photos/abstract/640x360/77" alt="World Network" class="rounded-2xl w-full object-cover opacity-80">
+                                <div class="absolute top-12 left-12 w-4 h-4 bg-green-400 rounded-full map-dot shadow-lg shadow-green-400/50"></div>
+                                <div class="absolute top-20 right-16 w-3 h-3 bg-amber-400 rounded-full map-dot shadow-lg shadow-amber-400/50" style="animation-delay:0.5s"></div>
+                                <div class="absolute bottom-16 left-20 w-4 h-4 bg-blue-400 rounded-full map-dot shadow-lg shadow-blue-400/50" style="animation-delay:1s"></div>
+                                <div class="absolute bottom-24 right-24 w-3 h-3 bg-pink-400 rounded-full map-dot shadow-lg shadow-pink-400/50" style="animation-delay:1.5s"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating cards -->
+                        <div class="absolute -left-8 bottom-4 glass rounded-2xl p-4 slide-up" style="animation-delay:0.3s">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-5 h-5 text-green-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white text-sm font-semibold" data-i18n="hero_card_wallet">Wallet Found!</div>
+                                    <div class="text-blue-200/60 text-xs" data-i18n="hero_card_wallet_sub">Paris, France • 2min ago</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -right-4 top-16 glass rounded-2xl p-4 slide-up" style="animation-delay:0.6s">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-amber-500/20 rounded-full flex items-center justify-center">
+                                    <i data-lucide="bell" class="w-5 h-5 text-amber-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white text-sm font-semibold" data-i18n="hero_card_match">New Match</div>
+                                    <div class="text-blue-200/60 text-xs" data-i18n="hero_card_match_sub">Your report has a match!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-brand-100 text-brand-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4" data-i18n="hiw_badge">HOW IT WORKS</span>
+                    <h2 class="font-heading text-4xl sm:text-5xl font-bold text-gray-900 mb-4" data-i18n="hiw_title">Three simple steps</h2>
+                    <p class="text-xl text-gray-500 max-w-2xl mx-auto" data-i18n="hiw_subtitle">Whether you've lost or found something, our process makes reuniting items with their owners seamless.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center group">
+                        <div class="w-20 h-20 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-red-100 transition">
+                            <i data-lucide="file-plus" class="w-9 h-9 text-red-500"></i>
+                        </div>
+                        <div class="text-sm font-bold text-brand-600 mb-2" data-i18n="hiw_step1_label">STEP 1</div>
+                        <h3 class="font-heading text-xl font-bold mb-3" data-i18n="hiw_step1_title">Report Your Item</h3>
+                        <p class="text-gray-500 leading-relaxed" data-i18n="hiw_step1_desc">Describe what you lost or found, add photos, and specify the location and date. Takes under 2 minutes.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-100 transition">
+                            <i data-lucide="scan-search" class="w-9 h-9 text-brand-600"></i>
+                        </div>
+                        <div class="text-sm font-bold text-brand-600 mb-2" data-i18n="hiw_step2_label">STEP 2</div>
+                        <h3 class="font-heading text-xl font-bold mb-3" data-i18n="hiw_step2_title">AI Matches Items</h3>
+                        <p class="text-gray-500 leading-relaxed" data-i18n="hiw_step2_desc">Our intelligent system matches lost items with found reports, comparing descriptions, photos, and locations.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-100 transition">
+                            <i data-lucide="handshake" class="w-9 h-9 text-green-600"></i>
+                        </div>
+                        <div class="text-sm font-bold text-brand-600 mb-2" data-i18n="hiw_step3_label">STEP 3</div>
+                        <h3 class="font-heading text-xl font-bold mb-3" data-i18n="hiw_step3_title">Get Reunited</h3>
+                        <p class="text-gray-500 leading-relaxed" data-i18n="hiw_step3_desc">Connect with the finder or owner through our secure messaging system and arrange the handoff.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section
+<script src="https://deepsite.hf.co/deepsite-badge.js"></script>
