@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reunite — Premium Lost & Found</title>
+    <title>Reunite — Lost & Found Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="lang.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -16,33 +14,18 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#eef7ff',
-                            100: '#d9edff',
-                            200: '#bce0ff',
-                            300: '#8ecdff',
-                            400: '#59b1ff',
-                            500: '#338dff',
-                            600: '#1a6df5',
-                            700: '#1457e1',
-                            800: '#1746b6',
-                            900: '#193e8f',
+                            50: '#eef7ff', 100: '#d9edff', 200: '#bce0ff',
+                            300: '#8ecdff', 400: '#59b1ff', 500: '#338dff',
+                            600: '#1a6df5', 700: '#1457e1', 800: '#1746b6', 900: '#193e8f',
                         },
-                        accent: '#f59e0b',
-                        success: '#10b981',
-                        danger: '#ef4444',
                     },
                     fontFamily: {
                         heading: ['Space Grotesk', 'sans-serif'],
                         body: ['Inter', 'sans-serif'],
                     },
                     animation: {
-                        'glow': 'glow 2s ease-in-out infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'slide-up': 'slideUp 0.6s ease-out forwards',
-                        'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
-                        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
-                        'scale-in': 'scaleIn 0.4s ease-out forwards',
-                        'shimmer': 'shimmer 2s infinite',
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'glow-pulse': 'glowPulse 3s ease-in-out infinite',
                     }
                 }
             }
@@ -55,135 +38,87 @@
         .page { display: none; }
         .page.active { display: block; }
         
-        /* Clean Background - No heavy particles */
+        /* Optimized gradient background */
         body {
             background: linear-gradient(135deg, #0a0f1a 0%, #0f172a 50%, #1a1f35 100%);
             background-attachment: fixed;
         }
         
-        /* Premium Glass Morphism - Optimized */
-        .glass-premium {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-        
-        .glass-premium-light {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.06);
-        }
-        
-        /* Hero Gradient - Clean */
-        .hero-gradient-premium {
+        /* Hero section with subtle animation */
+        .hero-section {
             background: radial-gradient(ellipse at 30% 40%, #0f172a 0%, #0a0f1a 100%);
             position: relative;
             overflow: hidden;
         }
         
-        /* Simple floating orbs - CSS only, no heavy animations */
+        /* Floating orbs - reduced animation */
         .floating-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.15;
+            filter: blur(60px);
+            opacity: 0.2;
             pointer-events: none;
+            will-change: transform;
         }
         
-        /* Glow text */
-        .glow-text {
-            text-shadow: 0 0 20px rgba(20, 87, 225, 0.3);
+        .floating-orb-1 { animation: floatOrb1 12s ease-in-out infinite; }
+        .floating-orb-2 { animation: floatOrb2 10s ease-in-out infinite; }
+        .floating-orb-3 { animation: floatOrb3 14s ease-in-out infinite; }
+        
+        @keyframes floatOrb1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -30px); }
+        }
+        @keyframes floatOrb2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-25px, 20px); }
+        }
+        @keyframes floatOrb3 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(15px, 25px); }
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-40px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(40px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        /* Premium Card Design - Redesigned */
+        /* Premium cards - smooth transitions */
         .card-premium {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(20, 30, 55, 0.9) 100%);
-            border: 1px solid rgba(20, 87, 225, 0.2);
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-premium::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #1457e1, #59b1ff, #1457e1, transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
-        }
-        
-        .card-premium:hover::after {
-            transform: translateX(100%);
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(20, 87, 225, 0.15);
+            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            will-change: transform;
         }
         
         .card-premium:hover {
-            transform: translateY(-6px);
-            border-color: rgba(20, 87, 225, 0.4);
-            box-shadow: 0 20px 40px -15px rgba(20, 87, 225, 0.2);
+            transform: translateY(-4px);
+            border-color: rgba(20, 87, 225, 0.35);
+            box-shadow: 0 20px 35px -15px rgba(0, 0, 0, 0.4);
         }
         
-        /* Catalog Card - Special Design */
+        /* Catalog cards */
         .catalog-card {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(20, 30, 55, 0.95) 100%);
-            border: 1px solid rgba(20, 87, 225, 0.15);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .catalog-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top right, rgba(20, 87, 225, 0.1), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            border-radius: inherit;
-        }
-        
-        .catalog-card:hover::before {
-            opacity: 1;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(20, 87, 225, 0.1);
+            transition: all 0.25s ease;
+            overflow: hidden;
         }
         
         .catalog-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(20, 87, 225, 0.4);
-            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.5);
+            transform: translateY(-3px);
+            border-color: rgba(20, 87, 225, 0.3);
         }
         
-        /* Interactive Nav Link */
+        .catalog-card img {
+            transition: transform 0.3s ease;
+        }
+        
+        .catalog-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Navigation */
         .nav-link-premium {
             position: relative;
-            transition: all 0.3s;
+            transition: color 0.2s;
         }
         
         .nav-link-premium::before {
@@ -194,26 +129,28 @@
             width: 0;
             height: 2px;
             background: linear-gradient(90deg, #1457e1, #59b1ff);
-            transition: all 0.3s;
+            transition: width 0.25s;
             transform: translateX(-50%);
         }
         
         .nav-link-premium:hover::before,
         .nav-link-premium.active::before {
-            width: 60%;
+            width: 70%;
         }
         
         .nav-link-premium.active {
-            color: #59b1ff;
+            background: linear-gradient(135deg, #1457e1, #59b1ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
-        /* Premium Button */
+        /* Buttons with subtle animation */
         .btn-premium {
-            position: relative;
             background: linear-gradient(135deg, #1457e1, #59b1ff);
-            border: none;
+            transition: all 0.2s;
+            position: relative;
             overflow: hidden;
-            transition: all 0.3s;
         }
         
         .btn-premium::before {
@@ -224,7 +161,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+            transition: left 0.4s;
         }
         
         .btn-premium:hover::before {
@@ -233,57 +170,53 @@
         
         .btn-premium:hover {
             transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(20, 87, 225, 0.35);
+            box-shadow: 0 8px 20px rgba(20, 87, 225, 0.3);
         }
         
-        /* Outline Button */
         .btn-outline-premium {
             background: transparent;
             border: 1px solid rgba(20, 87, 225, 0.5);
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
         
         .btn-outline-premium:hover {
             background: rgba(20, 87, 225, 0.1);
-            border-color: #1457e1;
             transform: scale(1.02);
+            border-color: #1457e1;
         }
         
-        /* Stat Number Style */
+        /* Stat numbers */
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             background: linear-gradient(135deg, #59b1ff, #1457e1);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             display: inline-block;
+            transition: transform 0.2s;
         }
         
-        /* Animated Border Button */
-        .btn-animated-border {
-            position: relative;
-            background: transparent;
-            border: none;
+        .stat-number:hover {
+            transform: scale(1.05);
         }
         
-        .btn-animated-border::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            padding: 1px;
-            background: linear-gradient(135deg, #1457e1, #59b1ff);
-            border-radius: 12px;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: xor;
-            pointer-events: none;
+        /* Pulse animation - lightweight */
+        .pulse-dot {
+            animation: pulseOpacity 2s infinite;
         }
         
-        /* Scroll reveal */
+        @keyframes pulseOpacity {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Scroll reveal - smooth */
         .scroll-reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(25px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            will-change: opacity, transform;
         }
         
         .scroll-reveal.revealed {
@@ -291,86 +224,114 @@
             transform: translateY(0);
         }
         
-        .pulse-dot {
-            animation: pulseDot 2s infinite;
+        /* Glass effect */
+        .glass-premium {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.06);
         }
         
-        @keyframes pulseDot {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.2); }
-        }
-        
-        /* Premium Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #1457e1, #59b1ff); border-radius: 10px; }
-        
-        /* Map dots interactive */
-        .interactive-dot {
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .interactive-dot:hover {
-            transform: scale(1.3);
-            filter: drop-shadow(0 0 8px rgba(20, 87, 225, 0.6));
-        }
-        
-        /* Form inputs */
+        /* Input fields */
         .input-premium {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.2s;
         }
         
         .input-premium:focus {
             border-color: #1457e1;
-            box-shadow: 0 0 0 3px rgba(20, 87, 225, 0.1);
             outline: none;
+            box-shadow: 0 0 0 3px rgba(20, 87, 225, 0.1);
         }
         
         /* Status badges */
         .status-badge-lost {
             background: rgba(239, 68, 68, 0.15);
             color: #f87171;
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            border: 1px solid rgba(239, 68, 68, 0.25);
         }
         
         .status-badge-found {
             background: rgba(16, 185, 129, 0.15);
             color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            border: 1px solid rgba(16, 185, 129, 0.25);
         }
         
         .status-badge-reunited {
             background: rgba(20, 87, 225, 0.15);
             color: #60a5fa;
-            border: 1px solid rgba(20, 87, 225, 0.3);
+            border: 1px solid rgba(20, 87, 225, 0.25);
+        }
+        
+        /* Toast animation */
+        .toast {
+            animation: slideInRight 0.25s ease-out forwards;
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .toast-out {
+            animation: slideOutRight 0.2s ease-in forwards;
+        }
+        
+        @keyframes slideOutRight {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(100%); }
+        }
+        
+        /* Modal animation */
+        .modal-scale {
+            animation: modalZoom 0.2s ease-out forwards;
+        }
+        
+        @keyframes modalZoom {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #1457e1, #59b1ff); border-radius: 4px; }
+        
+        /* Performance optimizations */
+        img {
+            content-visibility: auto;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Toast Container -->
-    <div id="toast-container" class="fixed top-6 right-6 z-[200] flex flex-col gap-3"></div>
+    <div id="toast-container" class="fixed top-6 right-6 z-[200] flex flex-col gap-2"></div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: rgba(10,15,26,0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(20,87,225,0.2);">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-white/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-2 group">
-                    <div class="w-9 h-9 bg-gradient-to-br from-brand-600 to-brand-400 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-110 transition-transform">
+                    <div class="w-9 h-9 bg-gradient-to-br from-brand-600 to-brand-400 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/20 transition-transform group-hover:scale-105">
                         <i data-lucide="radar" class="w-5 h-5 text-white"></i>
                     </div>
                     <span class="font-heading font-bold text-xl bg-gradient-to-r from-white to-brand-300 bg-clip-text text-transparent">Reunite</span>
                 </a>
                 
                 <div class="hidden md:flex items-center gap-1">
-                    <a href="#" onclick="navigateTo('home'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-400 hover:text-brand-400 rounded-lg transition" data-nav="home" data-i18n="nav_home">Home</a>
-                    <a href="#" onclick="navigateTo('catalog'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-400 hover:text-brand-400 rounded-lg transition" data-nav="catalog" data-i18n="nav_catalog">Catalog</a>
-                    <a href="#" onclick="navigateTo('report-lost'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-400 hover:text-brand-400 rounded-lg transition" data-nav="report-lost" data-i18n="nav_report_lost">Report Lost</a>
-                    <a href="#" onclick="navigateTo('report-found'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-400 hover:text-brand-400 rounded-lg transition" data-nav="report-found" data-i18n="nav_report_found">Report Found</a>
-                    <a href="#" onclick="navigateTo('pricing'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-400 hover:text-brand-400 rounded-lg transition" data-nav="pricing" data-i18n="nav_pricing">Pricing</a>
+                    <a href="#" onclick="navigateTo('home'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-400 rounded-lg transition" data-nav="home" data-i18n="nav_home">Home</a>
+                    <a href="#" onclick="navigateTo('catalog'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-400 rounded-lg transition" data-nav="catalog" data-i18n="nav_catalog">Catalog</a>
+                    <a href="#" onclick="navigateTo('report-lost'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-400 rounded-lg transition" data-nav="report-lost" data-i18n="nav_report_lost">Report Lost</a>
+                    <a href="#" onclick="navigateTo('report-found'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-400 rounded-lg transition" data-nav="report-found" data-i18n="nav_report_found">Report Found</a>
+                    <a href="#" onclick="navigateTo('pricing'); return false;" class="nav-link-premium px-4 py-2 text-sm font-medium text-gray-300 hover:text-brand-400 rounded-lg transition" data-nav="pricing" data-i18n="nav_pricing">Pricing</a>
                 </div>
                 
                 <div class="flex items-center gap-3">
@@ -392,7 +353,6 @@
             </div>
         </div>
         
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 backdrop-blur-xl border-t border-white/10">
             <div class="px-4 py-3 space-y-1">
                 <a href="#" onclick="navigateTo('home');toggleMobileMenu(); return false;" class="block px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-white/5 rounded-lg" data-i18n="nav_home">Home</a>
@@ -405,12 +365,12 @@
     </nav>
 
     <!-- Search Overlay -->
-    <div id="search-overlay" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md hidden" onclick="closeSearch()">
+    <div id="search-overlay" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm hidden" onclick="closeSearch()">
         <div class="max-w-2xl mx-auto mt-24 px-4" onclick="event.stopPropagation()">
             <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-brand-500/20">
                 <div class="flex items-center px-6 border-b border-white/10">
                     <i data-lucide="search" class="w-5 h-5 text-brand-400 mr-4"></i>
-                    <input id="search-input" type="text" data-i18n-placeholder="search_placeholder" placeholder="Search lost & found items..." class="w-full py-5 text-lg bg-transparent border-0 focus:ring-0 focus:outline-none text-white placeholder-gray-500">
+                    <input id="search-input" type="text" data-i18n-placeholder="search_placeholder" placeholder="Search lost & found items..." class="w-full py-5 text-lg bg-transparent border-0 focus:outline-none text-white placeholder-gray-500">
                     <kbd class="hidden sm:inline-block px-2 py-1 bg-white/10 text-gray-400 text-xs rounded font-mono">ESC</kbd>
                 </div>
                 <div id="search-results" class="max-h-96 overflow-y-auto">
@@ -425,30 +385,28 @@
 
     <!-- ==================== HOME PAGE ==================== -->
     <div id="page-home" class="page active">
-        <!-- Hero Section -->
-        <section class="hero-gradient-premium min-h-screen flex items-center relative overflow-hidden">
-            <!-- Simple Orbs - CSS only -->
-            <div class="floating-orb w-96 h-96 bg-brand-600" style="top: 10%; left: -10%;"></div>
-            <div class="floating-orb w-80 h-80 bg-blue-500" style="bottom: 10%; right: -10%;"></div>
-            <div class="floating-orb w-64 h-64 bg-cyan-500" style="top: 50%; left: 40%;"></div>
+        <section class="hero-section min-h-screen flex items-center relative overflow-hidden">
+            <div class="floating-orb floating-orb-1 w-96 h-96 bg-brand-600" style="top: 10%; left: -10%;"></div>
+            <div class="floating-orb floating-orb-2 w-80 h-80 bg-blue-500" style="bottom: 10%; right: -10%;"></div>
+            <div class="floating-orb floating-orb-3 w-64 h-64 bg-cyan-500" style="top: 50%; left: 40%;"></div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative z-10">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div class="scroll-reveal">
                         <div class="inline-flex items-center gap-2 glass-premium px-4 py-2 rounded-full text-sm mb-8">
                             <span class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></span>
-                            <span data-i18n="hero_badge" class="text-white/80">12,847 items reunited this month</span>
+                            <span data-i18n="hero_badge" class="text-white/90">12,847 items reunited this month</span>
                         </div>
                         <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6">
                             <span data-i18n="hero_title_1" class="text-white">Lost it?</span><br>
-                            <span class="bg-gradient-to-r from-brand-300 via-brand-400 to-cyan-300 bg-clip-text text-transparent glow-text" data-i18n="hero_title_2">We'll find it.</span>
+                            <span class="bg-gradient-to-r from-brand-300 via-brand-400 to-cyan-300 bg-clip-text text-transparent" data-i18n="hero_title_2">We'll find it.</span>
                         </h1>
-                        <p class="text-xl text-gray-400 mb-10 max-w-lg leading-relaxed" data-i18n="hero_subtitle">
+                        <p class="text-xl text-gray-300 mb-10 max-w-lg leading-relaxed" data-i18n="hero_subtitle">
                             The world's largest lost & found network. Report, search, and reunite with your belongings — powered by a global community.
                         </p>
                         <div class="flex flex-wrap gap-4">
                             <button onclick="navigateTo('report-lost')" class="inline-flex items-center gap-2 btn-premium text-white px-8 py-4 rounded-xl text-lg font-bold transition min-w-[200px] justify-center group">
-                                <i data-lucide="alert-circle" class="w-5 h-5 group-hover:rotate-12 transition"></i>
+                                <i data-lucide="alert-circle" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
                                 <span data-i18n="hero_btn_lost">I Lost Something</span>
                             </button>
                             <button onclick="navigateTo('report-found')" class="inline-flex items-center gap-2 btn-outline-premium text-white px-8 py-4 rounded-xl text-lg font-bold transition min-w-[200px] justify-center group">
@@ -459,65 +417,63 @@
                         
                         <div class="flex items-center gap-8 mt-12 pt-8 border-t border-white/10">
                             <div class="group cursor-pointer">
-                                <div class="stat-number group-hover:scale-105 transition-transform inline-block">2.4M+</div>
-                                <div class="text-sm text-gray-500" data-i18n="hero_stat_items">Items Listed</div>
+                                <div class="stat-number">2.4M+</div>
+                                <div class="text-sm text-gray-400" data-i18n="hero_stat_items">Items Listed</div>
                             </div>
                             <div class="group cursor-pointer">
-                                <div class="stat-number group-hover:scale-105 transition-transform inline-block">180+</div>
-                                <div class="text-sm text-gray-500" data-i18n="hero_stat_countries">Countries</div>
+                                <div class="stat-number">180+</div>
+                                <div class="text-sm text-gray-400" data-i18n="hero_stat_countries">Countries</div>
                             </div>
                             <div class="group cursor-pointer">
-                                <div class="stat-number group-hover:scale-105 transition-transform inline-block">67%</div>
-                                <div class="text-sm text-gray-500" data-i18n="hero_stat_rate">Reunion Rate</div>
+                                <div class="stat-number">67%</div>
+                                <div class="text-sm text-gray-400" data-i18n="hero_stat_rate">Reunion Rate</div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="hidden lg:block relative scroll-reveal" style="transition-delay: 0.2s;">
-                        <div class="relative float-animation">
+                        <div class="relative animate-float-slow">
                             <div class="glass-premium rounded-3xl p-8">
-                                <img src="http://static.photos/abstract/640x360/77" alt="World Network" class="rounded-2xl w-full object-cover opacity-50">
-                                <!-- Interactive Dots -->
-                                <div class="absolute top-12 left-12 interactive-dot">
-                                    <div class="w-4 h-4 bg-green-400 rounded-full pulse-dot"></div>
-                                    <div class="absolute -top-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity pointer-events-none">23 items</div>
+                                <img src="http://static.photos/abstract/640x360/77" alt="World Network" class="rounded-2xl w-full object-cover opacity-60" loading="lazy">
+                                <div class="absolute top-12 left-12 interactive-dot cursor-pointer">
+                                    <div class="w-4 h-4 bg-green-400 rounded-full pulse-dot shadow-lg shadow-green-400/50"></div>
+                                    <div class="absolute -top-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 hover:opacity-100 transition-opacity pointer-events-none">23 items</div>
                                 </div>
-                                <div class="absolute top-20 right-16 interactive-dot">
-                                    <div class="w-3 h-3 bg-amber-400 rounded-full pulse-dot" style="animation-delay:0.5s"></div>
-                                    <div class="absolute -top-8 -right-4 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity pointer-events-none">45 items</div>
+                                <div class="absolute top-20 right-16 interactive-dot cursor-pointer">
+                                    <div class="w-3 h-3 bg-amber-400 rounded-full pulse-dot shadow-lg shadow-amber-400/50"></div>
+                                    <div class="absolute -top-8 -right-4 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 hover:opacity-100 transition-opacity pointer-events-none">45 items</div>
                                 </div>
-                                <div class="absolute bottom-16 left-20 interactive-dot">
-                                    <div class="w-4 h-4 bg-blue-400 rounded-full pulse-dot" style="animation-delay:1s"></div>
-                                    <div class="absolute -bottom-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity pointer-events-none">12 items</div>
+                                <div class="absolute bottom-16 left-20 interactive-dot cursor-pointer">
+                                    <div class="w-4 h-4 bg-blue-400 rounded-full pulse-dot shadow-lg shadow-blue-400/50"></div>
+                                    <div class="absolute -bottom-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 hover:opacity-100 transition-opacity pointer-events-none">12 items</div>
                                 </div>
-                                <div class="absolute bottom-24 right-24 interactive-dot">
-                                    <div class="w-3 h-3 bg-pink-400 rounded-full pulse-dot" style="animation-delay:1.5s"></div>
-                                    <div class="absolute -top-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 interactive-dot:hover:opacity-100 transition-opacity pointer-events-none">67 items</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Floating cards -->
-                        <div class="absolute -left-8 bottom-4 glass-premium rounded-2xl p-3 slide-up cursor-pointer hover:scale-105 transition-transform" style="animation-delay:0.3s">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
-                                    <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
-                                </div>
-                                <div>
-                                    <div class="text-white text-xs font-semibold" data-i18n="hero_card_wallet">Wallet Found!</div>
-                                    <div class="text-gray-500 text-xs" data-i18n="hero_card_wallet_sub">Paris, FR • 2min ago</div>
+                                <div class="absolute bottom-24 right-24 interactive-dot cursor-pointer">
+                                    <div class="w-3 h-3 bg-pink-400 rounded-full pulse-dot shadow-lg shadow-pink-400/50"></div>
+                                    <div class="absolute -top-8 left-6 bg-gray-900/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 hover:opacity-100 transition-opacity pointer-events-none">67 items</div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="absolute -right-4 top-16 glass-premium rounded-2xl p-3 slide-up cursor-pointer hover:scale-105 transition-transform" style="animation-delay:0.6s">
+                        <div class="absolute -left-8 bottom-4 glass-premium rounded-2xl p-4 animate-slide-up" style="animation: slideUp 0.5s ease-out forwards 0.3s; opacity: 0;">
                             <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 bg-amber-500/20 rounded-full flex items-center justify-center">
-                                    <i data-lucide="bell" class="w-4 h-4 text-amber-400"></i>
+                                <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-5 h-5 text-green-400"></i>
                                 </div>
                                 <div>
-                                    <div class="text-white text-xs font-semibold" data-i18n="hero_card_match">New Match</div>
-                                    <div class="text-gray-500 text-xs" data-i18n="hero_card_match_sub">Your report matched!</div>
+                                    <div class="text-white text-sm font-semibold" data-i18n="hero_card_wallet">Wallet Found!</div>
+                                    <div class="text-gray-400 text-xs" data-i18n="hero_card_wallet_sub">Paris, France • 2min ago</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -right-4 top-16 glass-premium rounded-2xl p-4 animate-slide-up" style="animation: slideUp 0.5s ease-out forwards 0.6s; opacity: 0;">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-amber-500/20 rounded-full flex items-center justify-center">
+                                    <i data-lucide="bell" class="w-5 h-5 text-amber-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white text-sm font-semibold" data-i18n="hero_card_match">New Match</div>
+                                    <div class="text-gray-400 text-xs" data-i18n="hero_card_match_sub">Your report has a match!</div>
                                 </div>
                             </div>
                         </div>
@@ -526,7 +482,7 @@
             </div>
         </section>
 
-        <!-- How It Works - Redesigned Cards -->
+        <!-- How It Works -->
         <section class="py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 scroll-reveal">
@@ -536,170 +492,135 @@
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Step 1 Card -->
                     <div class="card-premium rounded-2xl p-8 text-center scroll-reveal">
-                        <div class="w-16 h-16 bg-gradient-to-br from-red-500/10 to-red-600/5 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                            <i data-lucide="file-plus" class="w-8 h-8 text-red-400"></i>
+                        <div class="w-20 h-20 bg-gradient-to-br from-red-500/10 to-red-600/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="file-plus" class="w-9 h-9 text-red-400"></i>
                         </div>
-                        <div class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2" data-i18n="hiw_step1_label">Step 01</div>
+                        <div class="text-sm font-bold text-brand-400 mb-2" data-i18n="hiw_step1_label">STEP 01</div>
                         <h3 class="font-heading text-xl font-bold text-white mb-3" data-i18n="hiw_step1_title">Report Your Item</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="hiw_step1_desc">Describe what you lost or found, add photos, and specify the location and date.</p>
+                        <p class="text-gray-400 leading-relaxed" data-i18n="hiw_step1_desc">Describe what you lost or found, add photos, and specify the location and date. Takes under 2 minutes.</p>
                     </div>
-                    <!-- Step 2 Card -->
                     <div class="card-premium rounded-2xl p-8 text-center scroll-reveal" style="transition-delay: 0.1s">
-                        <div class="w-16 h-16 bg-gradient-to-br from-brand-500/10 to-brand-600/5 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                            <i data-lucide="scan-search" class="w-8 h-8 text-brand-400"></i>
+                        <div class="w-20 h-20 bg-gradient-to-br from-brand-500/10 to-brand-600/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="scan-search" class="w-9 h-9 text-brand-400"></i>
                         </div>
-                        <div class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2" data-i18n="hiw_step2_label">Step 02</div>
+                        <div class="text-sm font-bold text-brand-400 mb-2" data-i18n="hiw_step2_label">STEP 02</div>
                         <h3 class="font-heading text-xl font-bold text-white mb-3" data-i18n="hiw_step2_title">AI Matches Items</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="hiw_step2_desc">Our intelligent system matches lost items with found reports automatically.</p>
+                        <p class="text-gray-400 leading-relaxed" data-i18n="hiw_step2_desc">Our intelligent system matches lost items with found reports, comparing descriptions, photos, and locations.</p>
                     </div>
-                    <!-- Step 3 Card -->
                     <div class="card-premium rounded-2xl p-8 text-center scroll-reveal" style="transition-delay: 0.2s">
-                        <div class="w-16 h-16 bg-gradient-to-br from-green-500/10 to-green-600/5 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                            <i data-lucide="handshake" class="w-8 h-8 text-green-400"></i>
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-500/10 to-green-600/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="handshake" class="w-9 h-9 text-green-400"></i>
                         </div>
-                        <div class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2" data-i18n="hiw_step3_label">Step 03</div>
+                        <div class="text-sm font-bold text-brand-400 mb-2" data-i18n="hiw_step3_label">STEP 03</div>
                         <h3 class="font-heading text-xl font-bold text-white mb-3" data-i18n="hiw_step3_title">Get Reunited</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="hiw_step3_desc">Connect with the finder or owner through our secure messaging system.</p>
+                        <p class="text-gray-400 leading-relaxed" data-i18n="hiw_step3_desc">Connect with the finder or owner through our secure messaging system and arrange the handoff.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Recent Activity - Redesigned Cards -->
+        <!-- Recent Activity -->
         <section class="py-20 bg-black/30">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 scroll-reveal">
                     <span class="inline-block bg-green-500/10 text-green-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-green-500/20" data-i18n="recent_badge">RECENTLY REUNITED</span>
                     <h2 class="font-heading text-4xl sm:text-5xl font-bold text-white mb-4" data-i18n="recent_title">Happy reunions, happening daily</h2>
-                    <p class="text-xl text-gray-400 max-w-2xl mx-auto" data-i18n="recent_subtitle">Real stories of items that found their way back to their owners.</p>
+                    <p class="text-xl text-gray-400 max-w-2xl mx-auto" data-i18n="recent_subtitle">Real stories of items that found their way back to their owners through Reunite.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="catalog-card rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" onclick="openItemModal(1)">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="http://static.photos/nature/320x240/42" alt="Item" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
-                            <span class="absolute top-3 right-3 px-2 py-1 text-xs font-semibold rounded-full status-badge-reunited backdrop-blur-sm">Reunited</span>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-heading font-bold text-white text-lg mb-1">Golden Retriever</h4>
-                            <div class="flex items-center gap-2 text-sm text-gray-400">
-                                <i data-lucide="map-pin" class="w-3 h-3"></i>
-                                <span>Moscow, RU</span>
-                                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                                <span>2 days ago</span>
-                            </div>
+                        <img src="http://static.photos/nature/320x240/42" alt="Item" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
+                            <h4 class="font-heading font-bold text-white mb-1">Golden Retriever</h4>
+                            <p class="text-sm text-gray-400">Moscow, RU • 2 days ago</p>
                         </div>
                     </div>
                     <div class="catalog-card rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" style="transition-delay: 0.1s" onclick="openItemModal(2)">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="http://static.photos/technology/320x240/15" alt="Item" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
-                            <span class="absolute top-3 right-3 px-2 py-1 text-xs font-semibold rounded-full status-badge-reunited backdrop-blur-sm">Reunited</span>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-heading font-bold text-white text-lg mb-1">MacBook Pro 16"</h4>
-                            <div class="flex items-center gap-2 text-sm text-gray-400">
-                                <i data-lucide="map-pin" class="w-3 h-3"></i>
-                                <span>Berlin, DE</span>
-                                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                                <span>5 hours ago</span>
-                            </div>
+                        <img src="http://static.photos/technology/320x240/15" alt="Item" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
+                            <h4 class="font-heading font-bold text-white mb-1">MacBook Pro 16"</h4>
+                            <p class="text-sm text-gray-400">Berlin, DE • 5 hours ago</p>
                         </div>
                     </div>
                     <div class="catalog-card rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" style="transition-delay: 0.2s" onclick="openItemModal(3)">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="http://static.photos/people/320x240/88" alt="Item" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
-                            <span class="absolute top-3 right-3 px-2 py-1 text-xs font-semibold rounded-full status-badge-reunited backdrop-blur-sm">Reunited</span>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-heading font-bold text-white text-lg mb-1">Wedding Ring</h4>
-                            <div class="flex items-center gap-2 text-sm text-gray-400">
-                                <i data-lucide="map-pin" class="w-3 h-3"></i>
-                                <span>Tokyo, JP</span>
-                                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                                <span>1 week ago</span>
-                            </div>
+                        <img src="http://static.photos/people/320x240/88" alt="Item" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
+                            <h4 class="font-heading font-bold text-white mb-1">Wedding Ring</h4>
+                            <p class="text-sm text-gray-400">Tokyo, JP • 1 week ago</p>
                         </div>
                     </div>
                     <div class="catalog-card rounded-2xl overflow-hidden cursor-pointer group scroll-reveal" style="transition-delay: 0.3s" onclick="openItemModal(4)">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="http://static.photos/office/320x240/12" alt="Item" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
-                            <span class="absolute top-3 right-3 px-2 py-1 text-xs font-semibold rounded-full status-badge-reunited backdrop-blur-sm">Reunited</span>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-heading font-bold text-white text-lg mb-1">Passport</h4>
-                            <div class="flex items-center gap-2 text-sm text-gray-400">
-                                <i data-lucide="map-pin" class="w-3 h-3"></i>
-                                <span>London, UK</span>
-                                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                                <span>3 days ago</span>
-                            </div>
+                        <img src="http://static.photos/office/320x240/12" alt="Item" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full mb-2" data-i18n="item_status_reunited">Reunited</span>
+                            <h4 class="font-heading font-bold text-white mb-1">Passport</h4>
+                            <p class="text-sm text-gray-400">London, UK • 3 days ago</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials - Redesigned -->
+        <!-- Testimonials -->
         <section class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 scroll-reveal">
                     <span class="inline-block bg-purple-500/10 text-purple-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-purple-500/20" data-i18n="testimonials_badge">TESTIMONIALS</span>
                     <h2 class="font-heading text-4xl sm:text-5xl font-bold text-white mb-4" data-i18n="testimonials_title">Loved by thousands</h2>
                 </div>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="card-premium rounded-2xl p-6 scroll-reveal">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card-premium rounded-2xl p-8 scroll-reveal">
                         <div class="flex gap-1 mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
                         </div>
-                        <p class="text-gray-300 text-sm mb-5" data-i18n="testimonial_1_text">I couldn't believe it when someone found my lost drone! Reunite's community is amazing.</p>
+                        <p class="text-gray-300 mb-6" data-i18n="testimonial_1_text">I couldn't believe it when someone found my lost drone! Reunite's community is amazing.</p>
                         <div class="flex items-center gap-3">
-                            <img src="http://static.photos/people/48x48/1" class="w-10 h-10 rounded-full border border-brand-500/30" alt="User">
+                            <img src="http://static.photos/people/48x48/1" class="w-10 h-10 rounded-full border border-brand-500/30" alt="User" loading="lazy">
                             <div>
-                                <div class="font-semibold text-white text-sm" data-i18n="testimonial_1_name">Alex K.</div>
-                                <div class="text-xs text-gray-500" data-i18n="testimonial_1_loc">Berlin, Germany</div>
+                                <div class="font-semibold text-white" data-i18n="testimonial_1_name">Alex K.</div>
+                                <div class="text-sm text-gray-400" data-i18n="testimonial_1_loc">Berlin, Germany</div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-premium rounded-2xl p-6 scroll-reveal" style="transition-delay: 0.1s">
+                    <div class="card-premium rounded-2xl p-8 scroll-reveal" style="transition-delay: 0.1s">
                         <div class="flex gap-1 mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
                         </div>
-                        <p class="text-gray-300 text-sm mb-5" data-i18n="testimonial_2_text">We found a lost cat and within hours the owner contacted us. This site is magical!</p>
+                        <p class="text-gray-300 mb-6" data-i18n="testimonial_2_text">We found a lost cat and within hours the owner contacted us. This site is magical!</p>
                         <div class="flex items-center gap-3">
-                            <img src="http://static.photos/people/48x48/2" class="w-10 h-10 rounded-full border border-brand-500/30" alt="User">
+                            <img src="http://static.photos/people/48x48/2" class="w-10 h-10 rounded-full border border-brand-500/30" alt="User" loading="lazy">
                             <div>
-                                <div class="font-semibold text-white text-sm" data-i18n="testimonial_2_name">Maria S.</div>
-                                <div class="text-xs text-gray-500" data-i18n="testimonial_2_loc">Paris, France</div>
+                                <div class="font-semibold text-white" data-i18n="testimonial_2_name">Maria S.</div>
+                                <div class="text-sm text-gray-400" data-i18n="testimonial_2_loc">Paris, France</div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-premium rounded-2xl p-6 scroll-reveal" style="transition-delay: 0.2s">
+                    <div class="card-premium rounded-2xl p-8 scroll-reveal" style="transition-delay: 0.2s">
                         <div class="flex gap-1 mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i>
                         </div>
-                        <p class="text-gray-300 text-sm mb-5" data-i18n="testimonial_3_text">My wallet was returned with all my cards and cash. I'm forever grateful to Reunite.</p>
+                        <p class="text-gray-300 mb-6" data-i18n="testimonial_3_text">My wallet was returned with all my cards and cash. I'm forever grateful to Reunite.</p>
                         <div class="flex items-center gap-3">
-                            <img src="http://static.photos/people/48x48/3" class="w-10 h-10 rounded-full border border-brand-500/30" alt="User">
+                            <img src="http://static.photos/people/48x48/3" class="w-10 h-10 rounded-full border border-brand-500/30" alt="User" loading="lazy">
                             <div>
-                                <div class="font-semibold text-white text-sm" data-i18n="testimonial_3_name">John D.</div>
-                                <div class="text-xs text-gray-500" data-i18n="testimonial_3_loc">New York, USA</div>
+                                <div class="font-semibold text-white" data-i18n="testimonial_3_name">John D.</div>
+                                <div class="text-sm text-gray-400" data-i18n="testimonial_3_loc">New York, USA</div>
                             </div>
                         </div>
                     </div>
@@ -708,13 +629,13 @@
         </section>
 
         <!-- CTA -->
-        <section class="py-20 relative overflow-hidden">
-            <div class="floating-orb w-96 h-96 bg-brand-600" style="top: -20%; right: -10%;"></div>
+        <section class="py-20 hero-section relative overflow-hidden">
+            <div class="floating-orb floating-orb-1 w-96 h-96 bg-brand-600" style="top: -20%; right: -10%;"></div>
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 scroll-reveal">
                 <h2 class="font-heading text-4xl sm:text-5xl font-bold text-white mb-6" data-i18n="cta_title">Ready to find what's lost?</h2>
-                <p class="text-xl text-gray-400 mb-10" data-i18n="cta_subtitle">Join millions who have reunited with their belongings. It's fast, free, and easy.</p>
+                <p class="text-xl text-gray-300 mb-10" data-i18n="cta_subtitle">Join millions who have reunited with their belongings. It's fast, free, and easy.</p>
                 <button onclick="navigateTo('report-lost')" class="inline-flex items-center gap-2 btn-premium text-white px-10 py-5 rounded-xl text-lg font-bold transition min-w-[220px] justify-center group">
-                    <i data-lucide="zap" class="w-5 h-5 group-hover:rotate-12 transition"></i>
+                    <i data-lucide="zap" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
                     <span data-i18n="cta_btn">Report Lost Item</span>
                 </button>
             </div>
@@ -723,7 +644,7 @@
 
     <!-- ==================== CATALOG PAGE ==================== -->
     <div id="page-catalog" class="page">
-        <div class="pt-20 pb-12 min-h-screen">
+        <div class="pt-20 pb-12 bg-gray-950/50 min-h-screen">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mb-8 scroll-reveal">
                     <h1 class="font-heading text-4xl font-bold text-white mb-2" data-i18n="catalog_title">Lost & Found Catalog</h1>
@@ -733,9 +654,9 @@
                 <div class="flex flex-col sm:flex-row gap-4 mb-8 scroll-reveal" style="transition-delay: 0.1s">
                     <div class="relative flex-1">
                         <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
-                        <input type="text" id="catalog-search" data-i18n-placeholder="catalog_search_placeholder" placeholder="Search by title or location..." class="input-premium w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white placeholder-gray-500">
+                        <input type="text" id="catalog-search" data-i18n-placeholder="catalog_search_placeholder" placeholder="Search by title or location..." class="input-premium w-full pl-10 pr-4 py-3 rounded-xl text-white placeholder-gray-500">
                     </div>
-                    <select id="catalog-status" onchange="filterCatalog()" class="input-premium px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white">
+                    <select id="catalog-status" onchange="filterCatalog()" class="input-premium px-4 py-3 rounded-xl text-white">
                         <option value="all" data-i18n="catalog_filter_all">All Items</option>
                         <option value="lost" data-i18n="catalog_filter_lost">Lost</option>
                         <option value="found" data-i18n="catalog_filter_found">Found</option>
@@ -766,28 +687,28 @@
                 
                 <div class="card-premium rounded-2xl p-8 scroll-reveal" style="transition-delay: 0.1s">
                     <form id="lost-form" onsubmit="submitLostReport(event)">
-                        <div class="space-y-5">
+                        <div class="space-y-6">
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_title">Item Title *</label>
-                                <input type="text" id="lost-title" required class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_title_placeholder" placeholder="e.g., Brown leather wallet">
+                                <input type="text" id="lost-title" required class="input-premium w-full px-4 py-3 rounded-xl text-white placeholder-gray-500" data-i18n-placeholder="form_title_placeholder" placeholder="e.g., Brown leather wallet">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_description">Description</label>
-                                <textarea id="lost-description" rows="3" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_desc_placeholder" placeholder="Brand, color, distinguishing features..."></textarea>
+                                <textarea id="lost-description" rows="3" class="input-premium w-full px-4 py-3 rounded-xl text-white placeholder-gray-500" data-i18n-placeholder="form_desc_placeholder" placeholder="Brand, color, distinguishing features..."></textarea>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_location">Location</label>
-                                    <input type="text" id="lost-location" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_location_placeholder" placeholder="e.g., Central Park, New York">
+                                    <input type="text" id="lost-location" class="input-premium w-full px-4 py-3 rounded-xl text-white placeholder-gray-500" data-i18n-placeholder="form_location_placeholder" placeholder="e.g., Central Park, New York">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_date">Date Lost</label>
-                                    <input type="date" id="lost-date" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white">
+                                    <input type="date" id="lost-date" class="input-premium w-full px-4 py-3 rounded-xl text-white">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_category">Category</label>
-                                <select id="lost-category" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white">
+                                <select id="lost-category" class="input-premium w-full px-4 py-3 rounded-xl text-white">
                                     <option value="Electronics" data-i18n="cat_electronics">Electronics</option>
                                     <option value="Pets" data-i18n="cat_pets">Pets</option>
                                     <option value="Documents" data-i18n="cat_documents">Documents</option>
@@ -797,9 +718,9 @@
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_image_url">Image URL (optional)</label>
-                                <input type="url" id="lost-image" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_image_placeholder" placeholder="https://example.com/photo.jpg">
+                                <input type="url" id="lost-image" class="input-premium w-full px-4 py-3 rounded-xl text-white placeholder-gray-500" data-i18n-placeholder="form_image_placeholder" placeholder="https://example.com/photo.jpg">
                             </div>
-                            <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 text-white py-3.5 rounded-xl font-semibold transition flex items-center justify-center gap-2">
+                            <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 text-white py-3.5 rounded-xl font-semibold text-lg transition flex items-center justify-center gap-2">
                                 <i data-lucide="send" class="w-5 h-5"></i>
                                 <span data-i18n="form_submit_lost">Report Lost Item</span>
                             </button>
@@ -824,28 +745,28 @@
                 
                 <div class="card-premium rounded-2xl p-8 scroll-reveal" style="transition-delay: 0.1s">
                     <form id="found-form" onsubmit="submitFoundReport(event)">
-                        <div class="space-y-5">
+                        <div class="space-y-6">
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_title">Item Title *</label>
-                                <input type="text" id="found-title" required class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_title_placeholder" placeholder="e.g., Black umbrella">
+                                <input type="text" id="found-title" required class="input-premium w-full px-4 py-3 rounded-xl text-white placeholder-gray-500" data-i18n-placeholder="form_title_placeholder" placeholder="e.g., Black umbrella">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_description">Description</label>
-                                <textarea id="found-description" rows="3" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_desc_placeholder" placeholder="Color, brand, any marks..."></textarea>
+                                <textarea id="found-description" rows="3" class="input-premium w-full px-4 py-3 rounded-xl text-white placeholder-gray-500" data-i18n-placeholder="form_desc_placeholder" placeholder="Color, brand, any marks..."></textarea>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_location">Location</label>
-                                    <input type="text" id="found-location" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_location_placeholder" placeholder="e.g., Metro Station">
+                                    <input type="text" id="found-location" class="input-premium w-full px-4 py-3 rounded-xl text-white placeholder-gray-500" data-i18n-placeholder="form_location_placeholder" placeholder="e.g., Metro Station">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_date">Date Found</label>
-                                    <input type="date" id="found-date" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white">
+                                    <input type="date" id="found-date" class="input-premium w-full px-4 py-3 rounded-xl text-white">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_category">Category</label>
-                                <select id="found-category" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white">
+                                <select id="found-category" class="input-premium w-full px-4 py-3 rounded-xl text-white">
                                     <option value="Electronics" data-i18n="cat_electronics">Electronics</option>
                                     <option value="Pets" data-i18n="cat_pets">Pets</option>
                                     <option value="Documents" data-i18n="cat_documents">Documents</option>
@@ -855,9 +776,9 @@
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-300 mb-1" data-i18n="form_image_url">Image URL (optional)</label>
-                                <input type="url" id="found-image" class="input-premium w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl focus:border-brand-500 transition text-white" data-i18n-placeholder="form_image_placeholder" placeholder="https://example.com/photo.jpg">
+                                <input type="url" id="found-image" class="input-premium w-full px-4 py-3 rounded-xl text-white placeholder-gray-500" data-i18n-placeholder="form_image_placeholder" placeholder="https://example.com/photo.jpg">
                             </div>
-                            <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white py-3.5 rounded-xl font-semibold transition flex items-center justify-center gap-2">
+                            <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-600 text-white py-3.5 rounded-xl font-semibold text-lg transition flex items-center justify-center gap-2">
                                 <i data-lucide="send" class="w-5 h-5"></i>
                                 <span data-i18n="form_submit_found">Report Found Item</span>
                             </button>
@@ -879,52 +800,49 @@
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <!-- Free Plan -->
-                    <div class="card-premium rounded-2xl p-6 flex flex-col scroll-reveal">
-                        <h3 class="font-heading font-bold text-xl text-white mb-1" data-i18n="plan_free_name">Free</h3>
-                        <p class="text-gray-400 text-sm mb-4" data-i18n="plan_free_desc">For individuals testing the waters.</p>
-                        <div class="mb-4">
-                            <span class="text-4xl font-bold text-white">$0</span><span class="text-gray-400">/mo</span>
+                    <div class="card-premium rounded-2xl p-8 flex flex-col scroll-reveal">
+                        <h3 class="font-heading font-bold text-xl text-white mb-2" data-i18n="plan_free_name">Free</h3>
+                        <p class="text-gray-400 mb-6" data-i18n="plan_free_desc">For individuals testing the waters.</p>
+                        <div class="mb-6">
+                            <span class="text-5xl font-bold text-white">$0</span><span class="text-gray-400">/mo</span>
                         </div>
-                        <ul class="space-y-2 flex-1 mb-6">
-                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_free_feature1">1 item listing per month</span></li>
-                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_free_feature2">Basic matching</span></li>
-                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_free_feature3">Community support</span></li>
+                        <ul class="space-y-3 flex-1 mb-8">
+                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_free_feature1">1 item listing per month</span></li>
+                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_free_feature2">Basic matching</span></li>
+                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_free_feature3">Community support</span></li>
                         </ul>
-                        <button class="btn-outline-premium w-full py-2.5 text-brand-400 rounded-xl font-semibold transition" data-i18n="plan_select">Get Started</button>
+                        <button class="btn-outline-premium w-full py-3 text-brand-400 rounded-xl font-semibold transition" data-i18n="plan_select">Get Started</button>
                     </div>
                     
-                    <!-- Pro Plan - Highlighted -->
-                    <div class="card-premium rounded-2xl p-6 flex flex-col relative border-2 border-brand-500 scale-105 scroll-reveal" style="transition-delay: 0.1s">
-                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-600 to-brand-500 text-white px-3 py-0.5 rounded-full text-xs font-bold">MOST POPULAR</div>
-                        <h3 class="font-heading font-bold text-xl text-brand-400 mb-1" data-i18n="plan_pro_name">Pro</h3>
-                        <p class="text-gray-400 text-sm mb-4" data-i18n="plan_pro_desc">For active finders and seekers.</p>
-                        <div class="mb-4">
-                            <span class="text-4xl font-bold text-white">$9.99</span><span class="text-gray-400">/mo</span>
+                    <div class="card-premium rounded-2xl p-8 flex flex-col relative border-2 border-brand-500 scale-105 scroll-reveal" style="transition-delay: 0.1s">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-600 to-brand-500 text-white px-4 py-1 rounded-full text-xs font-bold">MOST POPULAR</div>
+                        <h3 class="font-heading font-bold text-xl text-brand-400 mb-2" data-i18n="plan_pro_name">Pro</h3>
+                        <p class="text-gray-400 mb-6" data-i18n="plan_pro_desc">For active finders and seekers.</p>
+                        <div class="mb-6">
+                            <span class="text-5xl font-bold text-white">$9.99</span><span class="text-gray-400">/mo</span>
                         </div>
-                        <ul class="space-y-2 flex-1 mb-6">
-                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_pro_feature1">Up to 5 item listings</span></li>
-                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_pro_feature2">Priority matching</span></li>
-                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_pro_feature3">Enhanced photos</span></li>
-                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_pro_feature4">Email notifications</span></li>
+                        <ul class="space-y-3 flex-1 mb-8">
+                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature1">Up to 5 item listings per month</span></li>
+                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature2">Priority matching</span></li>
+                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature3">Enhanced photos</span></li>
+                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_pro_feature4">Email notifications</span></li>
                         </ul>
-                        <button class="btn-premium w-full py-2.5 text-white rounded-xl font-semibold transition" data-i18n="plan_select">Choose Pro</button>
+                        <button class="btn-premium w-full py-3 text-white rounded-xl font-semibold transition" data-i18n="plan_select">Choose Pro</button>
                     </div>
                     
-                    <!-- Enterprise Plan -->
-                    <div class="card-premium rounded-2xl p-6 flex flex-col scroll-reveal" style="transition-delay: 0.2s">
-                        <h3 class="font-heading font-bold text-xl text-white mb-1" data-i18n="plan_enterprise_name">Enterprise</h3>
-                        <p class="text-gray-400 text-sm mb-4" data-i18n="plan_enterprise_desc">For organizations and high volume.</p>
-                        <div class="mb-4">
-                            <span class="text-4xl font-bold text-white">$49.99</span><span class="text-gray-400">/mo</span>
+                    <div class="card-premium rounded-2xl p-8 flex flex-col scroll-reveal" style="transition-delay: 0.2s">
+                        <h3 class="font-heading font-bold text-xl text-white mb-2" data-i18n="plan_enterprise_name">Enterprise</h3>
+                        <p class="text-gray-400 mb-6" data-i18n="plan_enterprise_desc">For organizations and high volume.</p>
+                        <div class="mb-6">
+                            <span class="text-5xl font-bold text-white">$49.99</span><span class="text-gray-400">/mo</span>
                         </div>
-                        <ul class="space-y-2 flex-1 mb-6">
-                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_enterprise_feature1">Unlimited listings</span></li>
-                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_enterprise_feature2">API access</span></li>
-                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_enterprise_feature3">Dedicated support</span></li>
-                            <li class="flex items-center gap-2 text-gray-300 text-sm"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="plan_enterprise_feature4">Custom branding</span></li>
+                        <ul class="space-y-3 flex-1 mb-8">
+                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature1">Unlimited listings</span></li>
+                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature2">API access</span></li>
+                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature3">Dedicated support</span></li>
+                            <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check" class="w-5 h-5 text-green-500"></i> <span data-i18n="plan_enterprise_feature4">Custom branding</span></li>
                         </ul>
-                        <button class="btn-outline-premium w-full py-2.5 text-brand-400 rounded-xl font-semibold transition" data-i18n="plan_select">Contact Sales</button>
+                        <button class="btn-outline-premium w-full py-3 text-brand-400 rounded-xl font-semibold transition" data-i18n="plan_select">Contact Sales</button>
                     </div>
                 </div>
             </div>
@@ -933,31 +851,31 @@
 
     <!-- Item Detail Modal -->
     <div id="item-modal" class="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm hidden items-center justify-center" onclick="closeItemModal()">
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl max-w-lg w-full mx-4 overflow-hidden shadow-2xl scale-in" onclick="event.stopPropagation()">
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl max-w-lg w-full mx-4 overflow-hidden shadow-2xl modal-scale" onclick="event.stopPropagation()">
             <div class="relative">
-                <img id="modal-image" src="" alt="Item" class="w-full h-56 object-cover">
+                <img id="modal-image" src="" alt="Item" class="w-full h-64 object-cover">
                 <button onclick="closeItemModal()" class="absolute top-4 right-4 w-8 h-8 bg-black/50 rounded-full flex items-center justify-center hover:bg-black/70 transition">
-                    <i data-lucide="x" class="w-4 h-4 text-white"></i>
+                    <i data-lucide="x" class="w-5 h-5 text-white"></i>
                 </button>
             </div>
             <div class="p-6">
                 <div class="flex items-center gap-2 mb-3">
-                    <span id="modal-status" class="px-2 py-0.5 text-xs font-semibold rounded-full"></span>
+                    <span id="modal-status" class="px-3 py-1 text-xs font-semibold rounded-full"></span>
                 </div>
-                <h3 id="modal-title" class="font-heading font-bold text-xl text-white mb-2"></h3>
-                <p id="modal-description" class="text-gray-300 text-sm mb-4"></p>
-                <div class="flex items-center gap-4 text-sm text-gray-400 mb-5">
-                    <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> <span id="modal-location"></span></span>
-                    <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> <span id="modal-date"></span></span>
+                <h3 id="modal-title" class="font-heading font-bold text-2xl text-white mb-2"></h3>
+                <p id="modal-description" class="text-gray-300 mb-4"></p>
+                <div class="flex items-center gap-4 text-sm text-gray-400 mb-6">
+                    <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> <span id="modal-location"></span></span>
+                    <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> <span id="modal-date"></span></span>
                 </div>
-                <button onclick="contactItem()" class="w-full btn-premium text-white py-2.5 rounded-xl font-semibold transition" data-i18n="modal_contact">Contact Owner / Finder</button>
+                <button onclick="contactItem()" class="w-full btn-premium text-white py-3 rounded-xl font-semibold transition" data-i18n="modal_contact">Contact Owner / Finder</button>
             </div>
         </div>
     </div>
 
 <script>
-    // === Core App Logic ===
-
+    // ========== OPTIMIZED CORE LOGIC ==========
+    
     const allItems = [
         { id: 1, type: 'lost', title: 'Golden Retriever', description: 'Lost near Central Park', location: 'Moscow, RU', date: '2025-01-15', status: 'reunited', image: 'http://static.photos/nature/320x240/42' },
         { id: 2, type: 'found', title: 'MacBook Pro 16"', description: 'Found at airport lounge', location: 'Berlin, DE', date: '2025-02-20', status: 'reunited', image: 'http://static.photos/technology/320x240/15' },
@@ -969,30 +887,25 @@
         { id: 8, type: 'found', title: 'Necklace', description: 'Gold necklace found in park', location: 'Sydney, AU', date: '2025-03-11', status: 'found', image: 'http://static.photos/people/320x240/55' }
     ];
 
-    // GSAP Scroll Animations
-    function initScrollAnimations() {
-        if (typeof gsap === 'undefined') return;
-        gsap.registerPlugin(ScrollTrigger);
-        
-        gsap.utils.toArray('.scroll-reveal').forEach((el, i) => {
-            gsap.fromTo(el, 
-                { opacity: 0, y: 40 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.6,
-                    delay: i * 0.08,
-                    scrollTrigger: {
-                        trigger: el,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse'
-                    }
-                }
-            );
-        });
-    }
-    
     let isNavigating = false;
+    let scrollObserver = null;
+
+    // Intersection Observer for scroll reveals (lightweight)
+    function initScrollReveal() {
+        const elements = document.querySelectorAll('.scroll-reveal');
+        if (elements.length === 0) return;
+        
+        scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    scrollObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '30px' });
+        
+        elements.forEach(el => scrollObserver.observe(el));
+    }
 
     function navigateTo(page) {
         if (isNavigating) return;
@@ -1002,18 +915,14 @@
         const target = document.getElementById('page-' + page);
         if (target) target.classList.add('active');
         
-        if (page === 'catalog') {
-            setTimeout(renderCatalog, 50);
-        }
+        if (page === 'catalog') setTimeout(renderCatalog, 20);
         
         document.querySelectorAll('.nav-link-premium').forEach(link => {
             link.classList.remove('active');
             if (link.dataset.nav === page) link.classList.add('active');
         });
         
-        if (window.location.hash !== '#' + page) {
-            window.location.hash = page;
-        }
+        if (window.location.hash !== '#' + page) window.location.hash = page;
         
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu) mobileMenu.classList.add('hidden');
@@ -1025,17 +934,12 @@
     }
 
     let isHandlingHash = false;
-    window.addEventListener('hashchange', (e) => {
+    window.addEventListener('hashchange', () => {
         if (isHandlingHash || isNavigating) return;
         isHandlingHash = true;
-        let page = window.location.hash.replace('#', '');
-        if (!page || page === '') page = 'home';
-        
+        let page = window.location.hash.replace('#', '') || 'home';
         const currentActive = document.querySelector('.page.active');
-        const targetId = 'page-' + page;
-        if (!currentActive || currentActive.id !== targetId) {
-            navigateTo(page);
-        }
+        if (!currentActive || currentActive.id !== 'page-' + page) navigateTo(page);
         isHandlingHash = false;
     });
     
@@ -1043,16 +947,17 @@
     document.addEventListener('DOMContentLoaded', () => {
         if (isInitialLoad) return;
         isInitialLoad = true;
-        setTimeout(initScrollAnimations, 300);
-        let page = window.location.hash.replace('#', '');
-        if (!page || page === '') page = 'home';
+        initScrollReveal();
+        let page = window.location.hash.replace('#', '') || 'home';
         navigateTo(page);
     });
 
     function openSearch() {
-        document.getElementById('search-overlay').classList.remove('hidden');
-        document.getElementById('search-input').focus();
+        const overlay = document.getElementById('search-overlay');
+        overlay.classList.remove('hidden');
+        setTimeout(() => document.getElementById('search-input')?.focus(), 50);
     }
+    
     function closeSearch() {
         document.getElementById('search-overlay').classList.add('hidden');
         document.getElementById('search-input').value = '';
@@ -1064,73 +969,45 @@
         if (typeof lucide !== 'undefined') lucide.createIcons();
     }
     
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeSearch();
-    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSearch(); });
 
     function handleSearch(query) {
-        const resultsContainer = document.getElementById('search-results');
+        const results = document.getElementById('search-results');
         if (!query.trim()) {
-            resultsContainer.innerHTML = `
-                <div class="p-6 text-center text-gray-400">
-                    <i data-lucide="search" class="w-10 h-10 mx-auto mb-3 opacity-30"></i>
-                    <p class="text-sm" data-i18n="search_hint">Start typing to search items worldwide</p>
-                </div>`;
+            results.innerHTML = '<div class="p-6 text-center text-gray-400"><i data-lucide="search" class="w-10 h-10 mx-auto mb-3 opacity-30"></i><p class="text-sm" data-i18n="search_hint">Start typing to search items worldwide</p></div>';
             if (typeof lucide !== 'undefined') lucide.createIcons();
             return;
         }
         const q = query.toLowerCase();
-        const filtered = allItems.filter(item => 
-            item.title.toLowerCase().includes(q) || 
-            item.description.toLowerCase().includes(q) || 
-            item.location.toLowerCase().includes(q)
-        );
+        const filtered = allItems.filter(i => i.title.toLowerCase().includes(q) || i.location.toLowerCase().includes(q));
         if (filtered.length === 0) {
-            resultsContainer.innerHTML = `
-                <div class="p-6 text-center text-gray-500">
-                    <i data-lucide="search-x" class="w-10 h-10 mx-auto mb-3 opacity-30"></i>
-                    <p class="text-sm">No results found for "${escapeHtml(query)}"</p>
-                </div>`;
+            results.innerHTML = `<div class="p-6 text-center text-gray-500"><p class="text-sm">No results found for "${escapeHtml(query)}"</p></div>`;
         } else {
-            resultsContainer.innerHTML = filtered.map(item => `
-                <div class="flex items-center gap-4 p-4 hover:bg-white/5 border-b border-white/10 cursor-pointer transition" onclick="openItemModal(${item.id})">
-                    <img src="${item.image}" alt="${escapeHtml(item.title)}" class="w-12 h-12 rounded-lg object-cover">
+            results.innerHTML = filtered.map(i => `
+                <div class="flex items-center gap-4 p-4 hover:bg-white/5 border-b border-white/10 cursor-pointer transition" onclick="openItemModal(${i.id});closeSearch()">
+                    <img src="${i.image}" class="w-14 h-14 rounded-lg object-cover">
                     <div class="flex-1">
-                        <div class="font-semibold text-white text-sm">${escapeHtml(item.title)}</div>
-                        <div class="text-xs text-gray-400">${escapeHtml(item.location)} · ${item.date}</div>
+                        <div class="font-semibold text-white">${escapeHtml(i.title)}</div>
+                        <div class="text-sm text-gray-400">${escapeHtml(i.location)} · ${i.date}</div>
                     </div>
-                    <span class="px-2 py-0.5 text-xs font-semibold rounded-full ${item.status === 'lost' ? 'status-badge-lost' : item.status === 'found' ? 'status-badge-found' : 'status-badge-reunited'}">${item.status.toUpperCase()}</span>
+                    <span class="px-2 py-1 text-xs font-semibold rounded-full ${i.status === 'lost' ? 'status-badge-lost' : i.status === 'found' ? 'status-badge-found' : 'status-badge-reunited'}">${i.status.toUpperCase()}</span>
                 </div>
             `).join('');
         }
         if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
-    function escapeHtml(text) {
-        const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
-        return String(text).replace(/[&<>"']/g, m => map[m]);
-    }
+    function escapeHtml(text) { return String(text).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m])); }
+    function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
 
-    function toggleMobileMenu() {
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
-    }
-
-    function showToast(message, type = 'info') {
+    function showToast(msg, type = 'info') {
         const container = document.getElementById('toast-container');
         const toast = document.createElement('div');
-        const bgColor = type === 'success' ? 'bg-green-500/20 border-green-500/30 text-green-400' : 'bg-blue-500/20 border-blue-500/30 text-blue-400';
-        toast.className = `toast flex items-center gap-3 px-4 py-3 rounded-xl border shadow-lg ${bgColor} backdrop-blur-sm`;
-        toast.innerHTML = `
-            <i data-lucide="${type === 'success' ? 'check-circle' : 'info'}" class="w-4 h-4"></i>
-            <span class="text-sm">${message}</span>
-        `;
+        toast.className = `toast flex items-center gap-3 px-5 py-4 rounded-xl border shadow-lg ${type === 'success' ? 'bg-green-500/20 border-green-500/30 text-green-400' : 'bg-blue-500/20 border-blue-500/30 text-blue-400'} backdrop-blur-sm`;
+        toast.innerHTML = `<i data-lucide="${type === 'success' ? 'check-circle' : 'info'}" class="w-5 h-5"></i><span>${msg}</span>`;
         container.appendChild(toast);
         if (typeof lucide !== 'undefined') lucide.createIcons();
-        setTimeout(() => {
-            toast.classList.add('toast-out');
-            toast.addEventListener('animationend', () => toast.remove());
-        }, 3000);
+        setTimeout(() => { toast.classList.add('toast-out'); setTimeout(() => toast.remove(), 200); }, 3000);
     }
 
     window.navigateTo = navigateTo;
@@ -1141,150 +1018,80 @@
     window.showToast = showToast;
 
     let currentFilter = { search: '', status: 'all' };
-
     function filterCatalog() {
-        const search = document.getElementById('catalog-search')?.value.toLowerCase() || '';
-        const status = document.getElementById('catalog-status')?.value || 'all';
-        currentFilter = { search, status };
+        currentFilter = { search: document.getElementById('catalog-search')?.value.toLowerCase() || '', status: document.getElementById('catalog-status')?.value || 'all' };
         renderCatalog();
     }
 
     function renderCatalog() {
-        let items = allItems.slice();
-        const { search, status } = currentFilter;
-        if (status !== 'all') {
-            items = items.filter(i => i.status === status);
-        }
-        if (search) {
-            items = items.filter(i => 
-                i.title.toLowerCase().includes(search) || 
-                i.location.toLowerCase().includes(search)
-            );
-        }
+        let items = allItems.filter(i => {
+            if (currentFilter.status !== 'all' && i.status !== currentFilter.status) return false;
+            if (currentFilter.search && !i.title.toLowerCase().includes(currentFilter.search) && !i.location.toLowerCase().includes(currentFilter.search)) return false;
+            return true;
+        });
         const grid = document.getElementById('catalog-grid');
-        const emptyEl = document.getElementById('catalog-empty');
+        const empty = document.getElementById('catalog-empty');
         if (!grid) return;
-        
-        if (items.length === 0) {
-            grid.innerHTML = '';
-            if (emptyEl) emptyEl.classList.remove('hidden');
-        } else {
-            if (emptyEl) emptyEl.classList.add('hidden');
-            grid.innerHTML = items.map(item => `
-                <div class="catalog-card rounded-2xl overflow-hidden cursor-pointer group" onclick="openItemModal(${item.id})">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="${item.image || 'http://static.photos/technology/320x240/42'}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
-                        <span class="absolute top-3 right-3 px-2 py-0.5 text-xs font-semibold rounded-full ${item.status === 'lost' ? 'status-badge-lost' : item.status === 'found' ? 'status-badge-found' : 'status-badge-reunited'} backdrop-blur-sm">${item.status.toUpperCase()}</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-heading font-bold text-white text-lg mb-1">${escapeHtml(item.title)}</h3>
-                        <div class="flex items-center gap-2 text-sm text-gray-400">
-                            <i data-lucide="map-pin" class="w-3 h-3"></i>
-                            <span>${escapeHtml(item.location)}</span>
-                            <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                            <span>${item.date}</span>
-                        </div>
+        if (items.length === 0) { grid.innerHTML = ''; if (empty) empty.classList.remove('hidden'); return; }
+        if (empty) empty.classList.add('hidden');
+        grid.innerHTML = items.map(i => `
+            <div class="catalog-card rounded-2xl overflow-hidden cursor-pointer group" onclick="openItemModal(${i.id})">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="${i.image}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                    <span class="absolute top-3 right-3 px-2 py-1 text-xs font-semibold rounded-full ${i.status === 'lost' ? 'status-badge-lost' : i.status === 'found' ? 'status-badge-found' : 'status-badge-reunited'} backdrop-blur-sm">${i.status.toUpperCase()}</span>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-heading font-bold text-lg text-white mb-1">${escapeHtml(i.title)}</h3>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span>${escapeHtml(i.location)}</span>
+                        <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                        <span>${i.date}</span>
                     </div>
                 </div>
-            `).join('');
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-        }
+            </div>
+        `).join('');
+        if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
     function openItemModal(id) {
         const item = allItems.find(i => i.id === id);
         if (!item) return;
         const modal = document.getElementById('item-modal');
-        document.getElementById('modal-image').src = item.image || 'http://static.photos/abstract/640x360/99';
+        document.getElementById('modal-image').src = item.image;
         document.getElementById('modal-title').textContent = item.title;
         document.getElementById('modal-description').textContent = item.description;
         document.getElementById('modal-location').textContent = item.location;
         document.getElementById('modal-date').textContent = item.date;
         const statusEl = document.getElementById('modal-status');
         statusEl.textContent = item.status.toUpperCase();
-        statusEl.className = 'px-2 py-0.5 text-xs font-semibold rounded-full ' + 
-            (item.status === 'lost' ? 'status-badge-lost' : 
-             item.status === 'found' ? 'status-badge-found' : 
-             'status-badge-reunited');
-        if (modal) {
-            modal.dataset.itemId = id;
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
+        statusEl.className = `px-3 py-1 text-xs font-semibold rounded-full ${item.status === 'lost' ? 'status-badge-lost' : item.status === 'found' ? 'status-badge-found' : 'status-badge-reunited'}`;
+        if (modal) { modal.dataset.itemId = id; modal.classList.remove('hidden'); modal.classList.add('flex'); }
         if (typeof lucide !== 'undefined') lucide.createIcons();
     }
-
-    function closeItemModal() {
-        const modal = document.getElementById('item-modal');
-        if (modal) {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-    }
-
-    function contactItem() {
-        const modal = document.getElementById('item-modal');
-        const id = modal ? modal.dataset.itemId : null;
-        const item = allItems.find(i => i.id === parseInt(id));
-        if (item) {
-            showToast(`Message sent to the ${item.type === 'lost' ? 'owner' : 'finder'}!`, 'success');
-        }
-        closeItemModal();
-    }
+    
+    function closeItemModal() { const m = document.getElementById('item-modal'); if (m) { m.classList.add('hidden'); m.classList.remove('flex'); } }
+    function contactItem() { showToast('Message sent to the owner/finder!', 'success'); closeItemModal(); }
 
     function submitLostReport(e) {
         e.preventDefault();
         const title = document.getElementById('lost-title').value.trim();
-        if (!title) {
-            showToast('Please enter a title.', 'error');
-            return;
-        }
-        const newItem = {
-            id: allItems.length ? allItems[allItems.length-1].id + 1 : 1,
-            type: 'lost',
-            title: title,
-            description: document.getElementById('lost-description').value.trim(),
-            location: document.getElementById('lost-location').value.trim() || 'Unknown',
-            date: document.getElementById('lost-date').value || new Date().toISOString().split('T')[0],
-            status: 'lost',
-            image: document.getElementById('lost-image').value.trim() || 'http://static.photos/abstract/320x240/66',
-            category: document.getElementById('lost-category').value
-        };
-        allItems.push(newItem);
+        if (!title) { showToast('Please enter a title.', 'error'); return; }
+        allItems.push({ id: allItems.length + 1, type: 'lost', title, description: document.getElementById('lost-description').value, location: document.getElementById('lost-location').value || 'Unknown', date: document.getElementById('lost-date').value || new Date().toISOString().split('T')[0], status: 'lost', image: document.getElementById('lost-image').value || 'http://static.photos/abstract/320x240/66', category: document.getElementById('lost-category').value });
         showToast('Lost item reported successfully!', 'success');
         document.getElementById('lost-form').reset();
-        const catalogPage = document.getElementById('page-catalog');
-        if (catalogPage && catalogPage.classList.contains('active')) {
-            renderCatalog();
-        }
+        if (document.getElementById('page-catalog').classList.contains('active')) renderCatalog();
     }
 
     function submitFoundReport(e) {
         e.preventDefault();
         const title = document.getElementById('found-title').value.trim();
-        if (!title) {
-            showToast('Please enter a title.', 'error');
-            return;
-        }
-        const newItem = {
-            id: allItems.length ? allItems[allItems.length-1].id + 1 : 1,
-            type: 'found',
-            title: title,
-            description: document.getElementById('found-description').value.trim(),
-            location: document.getElementById('found-location').value.trim() || 'Unknown',
-            date: document.getElementById('found-date').value || new Date().toISOString().split('T')[0],
-            status: 'found',
-            image: document.getElementById('found-image').value.trim() || 'http://static.photos/technology/320x240/55',
-            category: document.getElementById('found-category').value
-        };
-        allItems.push(newItem);
+        if (!title) { showToast('Please enter a title.', 'error'); return; }
+        allItems.push({ id: allItems.length + 1, type: 'found', title, description: document.getElementById('found-description').value, location: document.getElementById('found-location').value || 'Unknown', date: document.getElementById('found-date').value || new Date().toISOString().split('T')[0], status: 'found', image: document.getElementById('found-image').value || 'http://static.photos/technology/320x240/55', category: document.getElementById('found-category').value });
         showToast('Found item reported successfully!', 'success');
         document.getElementById('found-form').reset();
-        const catalogPage = document.getElementById('page-catalog');
-        if (catalogPage && catalogPage.classList.contains('active')) {
-            renderCatalog();
-        }
+        if (document.getElementById('page-catalog').classList.contains('active')) renderCatalog();
     }
 
     window.filterCatalog = filterCatalog;
@@ -1295,11 +1102,7 @@
     window.submitLostReport = submitLostReport;
     window.submitFoundReport = submitFoundReport;
 
-    setTimeout(() => {
-        if (typeof applyLanguage === 'function') {
-            applyLanguage();
-        }
-    }, 100);
+    setTimeout(() => { if (typeof applyLanguage === 'function') applyLanguage(); }, 50);
 </script>
 </body>
 </html>
